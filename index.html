@@ -6,9 +6,7 @@
     <title>Explora Baia Formosa | Sua Aventura Começa Aqui</title>
     
     <link rel="icon" type="image/png" href="src/favicon.png">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,24 +29,28 @@
             <p>Descubra paraísos escondidos e viva experiências que você levará para a vida toda em Baia Formosa.</p>
             <div class="hero-btns">
                 <a href="#destinos" class="btn-primary">Ver Destinos</a>
-                <a href="#video" class="btn-outline">Opções de passeio</a>
+                <a href="#destinos" class="btn-outline">Opções de passeio</a>
             </div>
         </div>
     </section>
+
+    <div class="cart-icon" onclick="toggleCart()">
+        🛒 <span id="cart-count">0</span>
+    </div>
 
     <section id="destinos" class="destinos container">
         <div class="section-title">
             <h2>Escolha seu estilo de viagem</h2>
             <div class="filter-btns">
-                <button class="filter-btn active" data-filter="lagoas">Lagoas</button>
-                <button class="filter-btn" data-filter="praia">Praias</button>
-                <button class="filter-btn" data-filter="nordeste">Divisa | PB/RN</button>
+                <button class="filter-btn" data-filter="quadriciclo">Quadriciclo</button>
+                <button class="filter-btn" data-filter="buggy">Buggy</button>
+                <button class="filter-btn" data-filter="barco">Barco</button>
+                <button class="filter-btn" data-filter="nordeste">Canoa</button>
             </div>
         </div>
 
         <div class="destinos-grid">
-            <div class="card" data-category="lagoas">
-                <div class="card-carousel">
+            <div class="card" data-category="quadriciclo"> <div class="card-carousel">
                     <div class="carousel-container" id="carousel-lagoa">
                         <img src="src/lagoa-cocacola.jpg" alt="Lagoa da Coca-Cola Foto 1">
                         <img src="src/lagoa-cocacola2.jpg" alt="Lagoa da Coca-Cola Foto 2">
@@ -59,24 +61,43 @@
                     <button class="next" onclick="moveSlide(1, 'carousel-lagoa')">&#10095;</button>
                     
                     <span class="tag">Mais Vendido</span>
-                    
-                    <div class="carousel-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
                 </div>
 
                 <div class="card-info">
                     <h3>Lagoa da Coca-Cola</h3>
                     <p>O Caribe Brasileiro com águas encantadoras e propriedades medicinais.</p>
                     <div class="price">A partir de <span>R$ 600,00</span></div>
-                    <a href="https://wa.me/5584999999999?text=Olá! Tenho interesse na Lagoa da Coca-Cola" class="btn-card">Quero este destino</a>
+                    <button class="btn-card add-to-cart" data-name="Lagoa da Coca-Cola" data-price="600">Adicionar ao Roteiro</button>
                 </div>
             </div>
 
             </div>
     </section>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>📅 Seu Roteiro BF</h3>
+            <ul id="cart-items"></ul>
+            
+            <div class="cart-details">
+                <div class="input-group">
+                    <label>Previsão de Data:</label>
+                    <input type="date" id="travel-date">
+                </div>
+                <div class="input-group">
+                    <label>Nº de Pessoas:</label>
+                    <input type="number" id="travel-people" value="1" min="1">
+                </div>
+            </div>
+
+            <div class="cart-total">Total estimado: R$ <span id="total-price">0.00</span></div>
+            
+            <div class="cart-actions">
+                <button id="checkout-whatsapp" class="btn-primary">Confirmar via WhatsApp</button>
+                <button onclick="toggleCart()" class="btn-outline" style="color: #1A1A1A; border-color: #1A1A1A;">Continuar Explorando</button>
+            </div>
+        </div>
+    </div>
 
     <section class="features">
         <div class="container grid-3">
@@ -88,7 +109,7 @@
             <div class="feature-item">
                 <div class="icon">⭐</div>
                 <h4>Passeios 5 Estrelas</h4>
-                <p>Curadoria exclusiva das melhores hospedagens da região.</p>
+                <p>Curadoria exclusiva das melhores experiências da região.</p>
             </div>
             <div class="feature-item">
                 <div class="icon">💳</div>
@@ -105,7 +126,6 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 Explora Baia Formosa - Todos os direitos reservados.</p>
-            <p></p>
         </div>
     </footer>
 

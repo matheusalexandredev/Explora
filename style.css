@@ -8,8 +8,8 @@
     --text-muted: #666666;
     --transition: all 0.3s ease;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-btn: 0 4px 15px rgba(255, 122, 0, 0.3);
 }
-
 
 * {
     margin: 0;
@@ -19,6 +19,24 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+/* --- ESTILIZAÇÃO DO SCROLL GLOBAL --- */
+html::-webkit-scrollbar {
+    width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgba(255, 122, 0, 0.3);
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-orange);
 }
 
 body {
@@ -76,18 +94,15 @@ nav {
     transition: var(--transition);
 }
 
-.nav-links a:hover {
-    color: var(--primary-orange);
-}
-
 .btn-nav {
     background-color: var(--primary-orange);
     color: var(--white) !important;
     padding: 10px 20px;
     border-radius: 50px;
+    box-shadow: var(--shadow-btn);
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section (LARGURA TOTAL) --- */
 .hero {
     width: 100%;
     height: 85vh;
@@ -102,7 +117,7 @@ nav {
 
 .hero-content h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(2.2rem, 5vw, 4rem);
     margin-bottom: 20px;
 }
 
@@ -110,36 +125,36 @@ nav {
     color: var(--primary-orange);
 }
 
-.hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 30px;
-}
-
 .hero-btns {
     display: flex;
     gap: 15px;
     justify-content: center;
+    margin-top: 30px;
 }
 
 .btn-primary {
     background-color: var(--primary-orange);
     color: var(--white);
-    padding: 14px 30px;
+    padding: 14px 35px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
     transition: var(--transition);
+    box-shadow: var(--shadow-btn);
+    border: none;
+    cursor: pointer;
 }
 
 .btn-outline {
     border: 2px solid var(--white);
     color: var(--white);
-    padding: 12px 30px;
+    padding: 12px 35px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
     transition: var(--transition);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
 }
 
 .btn-outline:hover {
@@ -147,86 +162,143 @@ nav {
     color: var(--text-dark);
 }
 
-/* --- Destinos e Filtros --- */
-.destinos {
-    padding: 80px 0;
+/* --- Carrinho de Compras (Ícone e Modal) --- */
+.cart-icon {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: var(--primary-orange);
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
+.cart-icon:hover { transform: scale(1.1); }
+
+#cart-count {
+    background: white;
+    color: var(--primary-orange);
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: 800;
 }
+
+.cart-modal {
+    display: none; /* Controlado pelo JS */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.cart-details {
+    margin: 20px 0;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 15px;
+    text-align: left;
+}
+
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; }
+.input-group input { 
+    width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;
+}
+
+.cart-total { font-weight: 800; font-size: 1.4rem; margin-bottom: 25px; color: var(--text-dark); }
+.cart-actions { display: flex; flex-direction: column; gap: 10px; }
+
+/* --- Destinos e Filtros --- */
+.destinos { padding: 80px 0; }
+.section-title { text-align: center; margin-bottom: 40px; }
 
 .filter-btns {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 12px;
+    margin-top: 25px;
     flex-wrap: wrap;
 }
 
 .filter-btn {
-    padding: 8px 20px;
+    padding: 10px 22px;
     border: 2px solid var(--primary-orange);
     background: transparent;
     color: var(--primary-orange);
     border-radius: 50px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
     transition: var(--transition);
 }
 
 .filter-btn.active, .filter-btn:hover {
     background: var(--primary-orange);
     color: var(--white);
+    box-shadow: var(--shadow-btn);
 }
 
 .destinos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 40px;
     margin-top: 50px;
 }
 
-/* --- Card e Carrossel (O AJUSTE PRINCIPAL) --- */
+/* --- Card e Carrossel --- */
 .card {
     background: var(--white);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    position: relative;
 }
 
 .card-carousel {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 300px;
     overflow: hidden;
 }
 
 .carousel-container {
-    display: flex; /* Mantém imagens lado a lado */
+    display: flex;
     width: 100%;
     height: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 
+.carousel-container::-webkit-scrollbar { display: none; }
+
 .carousel-container img {
-    flex: 0 0 100%; /* Cada imagem ocupa 100% do card */
+    flex: 0 0 100%;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-/* Esconde a barra de rolagem em todos os navegadores */
-.carousel-container {
-    -ms-overflow-style: none;  /* IE e Edge */
-    scrollbar-width: none;  /* Firefox */
-}
 
-.carousel-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari e Opera */
-}
 .prev, .next {
     position: absolute;
     top: 50%;
@@ -234,8 +306,8 @@ nav {
     background: rgba(0,0,0,0.5);
     color: white;
     border: none;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
@@ -243,16 +315,11 @@ nav {
     transition: var(--transition);
 }
 
-.card:hover .prev, .card:hover .next {
-    opacity: 1;
-}
+.card:hover .prev, .card:hover .next { opacity: 1; }
+.prev { left: 15px; }
+.next { right: 15px; }
 
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.card-info {
-    padding: 25px;
-}
+.card-info { padding: 30px; }
 
 .tag {
     position: absolute;
@@ -260,79 +327,90 @@ nav {
     left: 15px;
     background: var(--primary-orange);
     color: white;
-    padding: 5px 15px;
+    padding: 6px 18px;
     border-radius: 50px;
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .price span {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--primary-orange);
     font-weight: 800;
 }
 
 .btn-card {
     display: block;
+    width: 100%;
     text-align: center;
     background: var(--text-dark);
     color: white;
-    padding: 12px;
-    border-radius: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: 600;
-    margin-top: 15px;
+    font-weight: 700;
+    margin-top: 20px;
+    transition: var(--transition);
+    cursor: pointer;
 }
+
+.btn-card:hover { background: var(--primary-orange); }
 
 /* --- Features --- */
-.features {
-    padding: 60px 0;
-    background: #fdfdfd;
-}
+.features { padding: 80px 0; background: #ffffff; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.feature-item { text-align: center; padding: 40px; background: var(--bg-light); border-radius: 20px; }
 
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-.feature-item {
-    text-align: center;
-    padding: 30px;
-}
-
-.feature-item .icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-/* --- WhatsApp e Footer --- */
+/* --- WhatsApp --- */
+/* --- WhatsApp Flutuante (VERSÃO CORRIGIDA) --- */
 .whatsapp-float {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 25px;
+    right: 25px;
     background: #25d366;
-    width: 60px;
-    height: 60px;
+    width: 60px;  /* Tamanho fixo do círculo */
+    height: 60px; /* Tamanho fixo do círculo */
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    z-index: 3000; /* Garante que fique acima de tudo, inclusive do modal */
+    transition: var(--transition);
 }
 
-.whatsapp-float img { width: 35px; }
-
-footer {
-    padding: 40px 0;
-    text-align: center;
-    background: #eee;
-    font-size: 0.9rem;
+.whatsapp-float img {
+    width: 35px;  /* Tamanho fixo da imagem dentro do círculo */
+    height: 35px;
+    object-fit: contain;
 }
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background: #20ba5a;
+}
+
+/* Ajuste para mobile para não atrapalhar o clique */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+footer { padding: 50px 0; text-align: center; background: #eee; }
 
 /* --- Mobile --- */
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .hero-btns { flex-direction: column; }
+    .destinos-grid { grid-template-columns: 1fr; }
+    .cart-content { width: 95%; padding: 20px; }
 }
