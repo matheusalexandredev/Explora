@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explora Baia Formosa | Sua Aventura Começa Aqui</title>
+    
+    <link rel="icon" type="image/png" href="src/favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header>
+        <nav class="container">
+            <div class="logo">Explora <span>Baia Formosa</span></div>
+            <ul class="nav-links">  
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#pacotes">Pacotes</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="https://wa.me/5584999999999" class="btn-nav">Falar com Consultor</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Sua próxima grande <span class="highlight">aventura</span> começa aqui.</h1>
+            <p>Descubra paraísos escondidos e viva experiências que você levará para a vida toda em Baia Formosa.</p>
+            <div class="hero-btns">
+                <a href="#destinos" class="btn-primary">Ver Destinos</a>
+                <a href="#video" class="btn-outline">Ver Vídeo</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinos" class="destinos container">
+        <div class="section-title">
+            <h2>Escolha seu estilo de viagem</h2>
+            <div class="filter-btns">
+                <button class="filter-btn active" data-filter="lagoas">Lagoas</button>
+                <button class="filter-btn" data-filter="praia">Praias</button>
+                <button class="filter-btn" data-filter="sagi">Praia do Sagi</button>
+                <button class="filter-btn" data-filter="nordeste">Nordeste</button>
+            </div>
+        </div>
+
+        <div class="destinos-grid">
+            <div class="card" data-category="lagoas">
+                <div class="card-carousel">
+                    <div class="carousel-container" id="carousel-lagoa">
+                        <img src="src/lagoa-cocacola.jpg" alt="Lagoa da Coca-Cola Foto 1">
+                        <img src="src/lagoa-cocacola2.jpg" alt="Lagoa da Coca-Cola Foto 2">
+                        <img src="src/lagoa-cocacola3.jpg" alt="Lagoa da Coca-Cola Foto 3">
+                    </div>
+                    
+                    <button class="prev" onclick="moveSlide(-1, 'carousel-lagoa')">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1, 'carousel-lagoa')">&#10095;</button>
+                    
+                    <span class="tag">Mais Vendido</span>
+                    
+                    <div class="carousel-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+
+                <div class="card-info">
+                    <h3>Lagoa da Coca-Cola</h3>
+                    <p>O Caribe Brasileiro com águas encantadoras e propriedades medicinais.</p>
+                    <div class="price">A partir de <span>R$ 600,00</span></div>
+                    <a href="https://wa.me/5584999999999?text=Olá! Tenho interesse na Lagoa da Coca-Cola" class="btn-card">Quero este destino</a>
+                </div>
+            </div>
+
+            </div>
+    </section>
+
+    <section class="features">
+        <div class="container grid-3">
+            <div class="feature-item">
+                <div class="icon">🛡️</div>
+                <h4>Viagem Segura</h4>
+                <p>Seguro viagem incluso em todos os nossos pacotes para sua tranquilidade.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">⭐</div>
+                <h4>Hotéis 5 Estrelas</h4>
+                <p>Curadoria exclusiva das melhores hospedagens da região.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">💳</div>
+                <h4>Pagamento Facilitado</h4>
+                <p>Parcele sua viagem em até 12x sem juros no cartão ou via Pix.</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/5584999999999" class="whatsapp-float" target="_blank">
+        <img src="src/whatsapp.png" alt="WhatsApp">
+    </a>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Explora Baia Formosa - Todos os direitos reservados.</p>
+            <p></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
