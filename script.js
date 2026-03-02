@@ -49,3 +49,29 @@ window.addEventListener('scroll', () => {
         header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
     }
 });
+// --- FUNÇÃO DE AUTOPLAY ---
+function startAutoplay() {
+    // Procura todos os containers de carrossel na página
+    const carousels = document.querySelectorAll('.carousel-container');
+
+    carousels.forEach(carousel => {
+        setInterval(() => {
+            const scrollWidth = carousel.offsetWidth;
+            const maxScroll = carousel.scrollWidth - scrollWidth;
+
+            // Se estiver no final, volta para o começo (0)
+            if (carousel.scrollLeft >= maxScroll - 10) {
+                carousel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                // Senão, pula para a próxima imagem
+                carousel.scrollBy({ left: scrollWidth, behavior: 'smooth' });
+            }
+        }, 5000); // 5000ms = 5 segundos (pode mudar para 3000 se quiser mais rápido)
+    });
+}
+
+// Inicia o autoplay assim que a página carregar
+document.addEventListener('DOMContentLoaded', () => {
+    startAutoplay();
+    // ... (mantenha o resto do seu código de filtros aqui embaixo)
+});
