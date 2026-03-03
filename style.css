@@ -559,12 +559,13 @@ footer {
   right: 0;
   width: 320px;
   background: var(--card-bg);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
   border-radius: 12px;
-  padding: 20px;
+  padding: 24px;
   z-index: 1001;
   margin-top: 10px;
   color: var(--text-color);
+  animation: bounce 0.4s ease;
 }
 
 /* Triângulo indicador do dropdown */
