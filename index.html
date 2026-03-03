@@ -4,21 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explora Baia Formosa | Sua Aventura Começa Aqui</title>
-    
     <link rel="icon" type="image/png" href="src/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
     <header>
         <nav class="container">
             <div class="logo">Explora <span>Baia Formosa</span></div>
+            
             <ul class="nav-links">  
+                <li><a href="#">Inicio</a></li>
                 <li><a href="#destinos">Destinos</a></li>
-                <li><a href="#pacotes">Pacotes</a></li>
-                <li><a href="#depoimentos">Depoimentos</a></li>
-                <li><a href="https://wa.me/5584999999999" class="btn-nav">Falar com Consultor</a></li>
+                
+                <li class="nav-cart-container">
+                    <button class="cart-toggle-btn" onclick="toggleCart()">
+                        🛒 <span id="cart-count">0</span>
+                    </button>
+                    
+                    <div id="cart-dropdown" class="cart-dropdown">
+                        <h3>Seu Roteiro</h3>
+                        <ul id="cart-items"></ul> 
+                        
+                        <div class="cart-footer">
+                            <div class="cart-total">Total: R$ <span id="total-price">0.00</span></div>
+                            <button id="checkout-whatsapp" class="btn-primary">Reservar agora</button>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="https://wa.me/5584999999999" class="btn-nav">Falar com Agente</a></li>
             </ul>
         </nav>
     </header>
@@ -26,109 +41,104 @@
     <section class="hero">
         <div class="hero-content container">
             <h1>Sua próxima grande <span class="highlight">aventura</span> começa aqui.</h1>
-            <p>Descubra paraísos escondidos e viva experiências que você levará para a vida toda em Baia Formosa.</p>
+            <p>Descubra paraísos escondidos e viva experiências inesquecíveis em Baia Formosa.</p>
             <div class="hero-btns">
                 <a href="#destinos" class="btn-primary">Ver Destinos</a>
-                <a href="#destinos" class="btn-outline">Opções de passeio</a>
+                <a href="https://wa.me/5584999999999" class="btn-outline">Fale conosco</a>
             </div>
         </div>
     </section>
-
-    <div class="cart-icon" onclick="toggleCart()">
-        🛒 <span id="cart-count">0</span>
-    </div>
 
     <section id="destinos" class="destinos container">
         <div class="section-title">
             <h2>Escolha seu estilo de viagem</h2>
             <div class="filter-btns">
                 <button class="filter-btn" data-filter="quadriciclo">Quadriciclo</button>
+                <button class="filter-btn" data-filter="canoa">Canoa</button>
                 <button class="filter-btn" data-filter="buggy">Buggy</button>
                 <button class="filter-btn" data-filter="barco">Barco</button>
-                <button class="filter-btn" data-filter="nordeste">Canoa</button>
             </div>
         </div>
 
         <div class="destinos-grid">
-            <div class="card" data-category="quadriciclo"> <div class="card-carousel">
+            <div class="card" data-category="quadriciclo">
+                <div class="card-carousel">
                     <div class="carousel-container" id="carousel-lagoa">
-                        <img src="src/lagoa-cocacola.jpg" alt="Lagoa da Coca-Cola Foto 1">
-                        <img src="src/lagoa-cocacola2.jpg" alt="Lagoa da Coca-Cola Foto 2">
-                        <img src="src/lagoa-cocacola3.jpg" alt="Lagoa da Coca-Cola Foto 3">
+                        <img src="src/lagoa-cocacola.jpg" alt="Lagoa 1">
+                        <img src="src/lagoa-cocacola2.jpg" alt="Lagoa 2">
+                        <img src="src/lagoa-cocacola3.jpg" alt="Lagoa 3">
                     </div>
-                    
                     <button class="prev" onclick="moveSlide(-1, 'carousel-lagoa')">&#10094;</button>
                     <button class="next" onclick="moveSlide(1, 'carousel-lagoa')">&#10095;</button>
-                    
                     <span class="tag">Mais Vendido</span>
                 </div>
-
                 <div class="card-info">
                     <h3>Lagoa da Coca-Cola</h3>
-                    <p>O Caribe Brasileiro com águas encantadoras e propriedades medicinais.</p>
+                    <p>Águas escuras e mornas com propriedades medicinais únicas.</p>
                     <div class="price">A partir de <span>R$ 600,00</span></div>
                     <button class="btn-card add-to-cart" data-name="Lagoa da Coca-Cola" data-price="600">Adicionar ao Roteiro</button>
                 </div>
             </div>
 
-            </div>
-    </section>
-
-    <div id="cart-modal" class="cart-modal">
-        <div class="cart-content">
-            <h3>📅 Seu Roteiro BF</h3>
-            <ul id="cart-items"></ul>
-            
-            <div class="cart-details">
-                <div class="input-group">
-                    <label>Previsão de Data:</label>
-                    <input type="date" id="travel-date">
+            <div class="card" data-category="canoa">
+                <div class="card-carousel">
+                    <div class="carousel-container" id="carousel-praia">
+                        <img src="src/lagoa-cocacola.jpg" alt="canoa 1">
+                        <img src="src/lagoa-cocacola2.jpg" alt="canoa 2">
+                        <img src="src/lagoa-cocacola3.jpg" alt="canoa 3">
+                    </div>
+                    <button class="prev" onclick="moveSlide(-1, 'carousel-praia')">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1, 'carousel-praia')">&#10095;</button>
                 </div>
-                <div class="input-group">
-                    <label>Nº de Pessoas:</label>
-                    <input type="number" id="travel-people" value="1" min="1">
+                <div class="card-info">
+                    <h3>Praia do Sagi</h3>
+                    <p>Banho de lama, perfeita para relaxar e se aventurar.</p>
+                    <div class="price">A partir de <span>R$ 400,00</span></div>
+                    <button class="btn-card add-to-cart" data-name="Praia do Sagi" data-price="400">Adicionar ao Roteiro</button>
                 </div>
-            </div>
-
-            <div class="cart-total">Total estimado: R$ <span id="total-price">0.00</span></div>
-            
-            <div class="cart-actions">
-                <button id="checkout-whatsapp" class="btn-primary">Confirmar via WhatsApp</button>
-                <button onclick="toggleCart()" class="btn-outline" style="color: #1A1A1A; border-color: #1A1A1A;">Continuar Explorando</button>
-            </div>
         </div>
-    </div>
-
-    <section class="features">
-        <div class="container grid-3">
-            <div class="feature-item">
-                <div class="icon">🛡️</div>
-                <h4>Viagem Segura</h4>
-                <p>Seguro viagem incluso em todos os nossos pacotes para sua tranquilidade.</p>
-            </div>
-            <div class="feature-item">
-                <div class="icon">⭐</div>
-                <h4>Passeios 5 Estrelas</h4>
-                <p>Curadoria exclusiva das melhores experiências da região.</p>
-            </div>
-            <div class="feature-item">
-                <div class="icon">💳</div>
-                <h4>Pagamento Facilitado</h4>
-                <p>Parcele sua viagem em até 12x sem juros no cartão ou via Pix.</p>
-            </div>
+        <div class="card" data-category="buggy">
+                <div class="card-carousel">
+                    <div class="carousel-container" id="carousel-buggy">
+                        <img src="src/lagoa-cocacola.jpg" alt="Buggy 1">
+                        <img src="src/lagoa-cocacola2.jpg" alt="Buggy 2">
+                        <img src="src/lagoa-cocacola3.jpg" alt="Buggy 3">
+                    </div>
+                    <button class="prev" onclick="moveSlide(-1, 'carousel-buggy')">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1, 'carousel-buggy')">&#10095;</button>
+                </div>
+                <div class="card-info">
+                    <h3>Aventura sobre 4 rodas</h3>
+                    <p>Passeio de Buggy conhecendo as praias de Baia Formosa | RN.</p>
+                    <div class="price">A partir de <span>R$ 400,00</span></div>
+                    <button class="btn-card add-to-cart" data-name="Passeio de Buggy" data-price="400">Adicionar ao Roteiro</button>
+                </div>
         </div>
+        <div class="card" data-category="barco">
+                <div class="card-carousel">
+                    <div class="carousel-container" id="carousel-barco">
+                        <img src="src/lagoa-cocacola.jpg" alt="Barco 1">
+                        <img src="src/lagoa-cocacola2.jpg" alt="Barco 2">
+                        <img src="src/lagoa-cocacola3.jpg" alt="Barco 3">
+                    </div>
+                    <button class="prev" onclick="moveSlide(-1, 'carousel-barco')">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1, 'carousel-barco')">&#10095;</button>
+                </div>
+                <div class="card-info">
+                    <h3>Passeio de Barco</h3>
+                    <p>Explore as águas cristalinas e a costa deslumbrante de Baia Formosa.</p>
+                    <div class="price">A partir de <span>R$ 400,00</span></div>
+                    <button class="btn-card add-to-cart" data-name="Passeio de Barco" data-price="400">Adicionar ao Roteiro</button>
+                </div>
     </section>
 
     <a href="https://wa.me/5584999999999" class="whatsapp-float" target="_blank">
         <img src="src/whatsapp.png" alt="WhatsApp">
     </a>
-
-    <footer>
+ <footer>
         <div class="container">
-            <p>&copy; 2026 Explora Baia Formosa - Todos os direitos reservados.</p>
+            <p>&copy; 2024 Explora Baia Formosa. Todos os direitos reservados.</p>
         </div>
-    </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
