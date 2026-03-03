@@ -862,3 +862,92 @@ footer {
         width: 100%;
     }
 }
+/* --- Seção de Depoimentos --- */
+.section-testimonials {
+    padding: 100px 0;
+    background-color: var(--bg-secondary); /* Usa o fundo alternativo do seu site */
+    text-align: center;
+    transition: var(--transition);
+}
+
+.section-testimonials h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+    color: var(--text-main);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--bg-card);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Aspas decorativas */
+.testimonial-card::before {
+    content: "'";
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 5rem;
+    color: var(--primary-orange);
+    opacity: 0.2;
+    font-family: serif;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text-soft);
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-card h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-orange);
+    margin-top: auto;
+}
+
+/* Ajuste específico para o Dark Mode */
+[data-theme="dark"] .testimonial-card {
+    background-color: var(--bg-card); /* Garante que o card fique levemente mais claro que o fundo body */
+}
+
+/* --- Responsividade Depoimentos --- */
+@media (max-width: 768px) {
+    .section-testimonials {
+        padding: 60px 0;
+    }
+    
+    .section-testimonials h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .testimonial-card {
+        padding: 30px 20px;
+    }
+}
