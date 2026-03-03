@@ -759,3 +759,106 @@ footer {
 .theme-switch {
     list-style: none;
 }
+/* --- Seção Sobre Nós --- */
+.section-about {
+    padding: 100px 0;
+    background-color: var(--bg-body); /* Segue o tema claro/escuro */
+    transition: var(--transition);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap; /* Garante que quebre no mobile */
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: var(--text-main);
+    position: relative;
+}
+
+/* Linha decorativa embaixo do título */
+.about-text h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-orange);
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-soft);
+    margin-bottom: 20px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    display: block;
+}
+
+/* Efeito decorativo atrás da imagem */
+.about-image::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background: var(--primary-orange);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+/* --- Responsividade Sobre Nós --- */
+@media (max-width: 992px) {
+    .about-content {
+        gap: 40px;
+    }
+    
+    .about-text h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-about {
+        padding: 60px 0;
+    }
+    
+    .about-content {
+        flex-direction: column; /* Texto em cima, imagem embaixo */
+        text-align: center;
+    }
+
+    .about-text h2::after {
+        margin: 10px auto 0; /* Centraliza a linha no mobile */
+    }
+    
+    .about-image {
+        width: 100%;
+    }
+}
