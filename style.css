@@ -406,28 +406,6 @@ nav {
   cursor: pointer;
 }
 
-/* --- Estilos do Carrinho (Modal) --- */
-.cart-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-}
-
-.cart-content {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 450px;
-  text-align: center;
-  position: relative;
-}
-
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -533,18 +511,7 @@ footer {
   background: #eee;
 }
 
-/* --- Mobile --- */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  .hero-btns {
-    flex-direction: column;
-  }
-  .destinos-grid {
-    grid-template-columns: 1fr;
-  }
-}
+
 
 /* Container do Carrinho na Nav */
 .nav-cart-container {
@@ -700,15 +667,38 @@ footer {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .map-wrapper { 
-        flex-direction: column; 
-    }
-    #map-element { 
-        height: 300px; 
-        width: 100%; 
-        min-width: unset;
-    }
-    .map-actions {
-        flex-direction: column; /* Botões empilhados no celular */
-    }
+  .nav-links {
+    display: none;
+  }
+  .hero-btns {
+    flex-direction: column;
+  }
+  .destinos-grid {
+    grid-template-columns: 1fr;
+  }
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+  .whatsapp-float img {
+    width: 28px;
+    height: 28px;
+  }
+  .cart-content {
+    width: 95%;
+    padding: 20px;
+  }
+  .map-wrapper { 
+    flex-direction: column; 
+  }
+  #map-element { 
+    height: 300px; 
+    width: 100%; 
+    min-width: unset;
+  }
+  .map-actions {
+    flex-direction: column;
+  }
 }
