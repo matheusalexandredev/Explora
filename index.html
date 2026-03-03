@@ -53,6 +53,7 @@
         <div class="section-title">
             <h2>Escolha seu estilo de viagem</h2>
             <div class="filter-btns">
+                <button class="filter-btn active" data-filter="todos">Todos</button>
                 <button class="filter-btn" data-filter="quadriciclo">Quadriciclo</button>
                 <button class="filter-btn" data-filter="canoa">Canoa</button>
                 <button class="filter-btn" data-filter="buggy">Buggy</button>
@@ -64,9 +65,9 @@
             <div class="card" data-category="quadriciclo">
                 <div class="card-carousel">
                     <div class="carousel-container" id="carousel-lagoa">
-                        <img src="src/lagoa-cocacola.jpg" alt="Lagoa 1">
-                        <img src="src/lagoa-cocacola2.jpg" alt="Lagoa 2">
-                        <img src="src/lagoa-cocacola3.jpg" alt="Lagoa 3">
+                        <img src="src/Quadriciclo/quadriciculo.png" alt="Lagoa 1">
+                        <img src="src/Quadriciclo/quadriciculo1.png" alt="Lagoa 2">
+                        <img src="src/Quadriciclo/quadriciculo2.png" alt="Lagoa 3">
                     </div>
                     <button class="prev" onclick="moveSlide(-1, 'carousel-lagoa')">&#10094;</button>
                     <button class="next" onclick="moveSlide(1, 'carousel-lagoa')">&#10095;</button>
@@ -83,9 +84,9 @@
             <div class="card" data-category="canoa">
                 <div class="card-carousel">
                     <div class="carousel-container" id="carousel-praia">
-                        <img src="src/lagoa-cocacola.jpg" alt="canoa 1">
-                        <img src="src/lagoa-cocacola2.jpg" alt="canoa 2">
-                        <img src="src/lagoa-cocacola3.jpg" alt="canoa 3">
+                        <img src="src/Canoa/canoa1.jpg" alt="canoa 1">
+                        <img src="src/Canoa/canoa2.jpg" alt="canoa 2">
+                        <img src="src/Canoa/canoa3.jpg" alt="canoa 3">
                     </div>
                     <button class="prev" onclick="moveSlide(-1, 'carousel-praia')">&#10094;</button>
                     <button class="next" onclick="moveSlide(1, 'carousel-praia')">&#10095;</button>
@@ -96,12 +97,13 @@
                     <div class="price">A partir de <span>R$ 400,00</span></div>
                     <button class="btn-card add-to-cart" data-name="Praia do Sagi" data-price="400">Adicionar ao Roteiro</button>
                 </div>
-        </div>
-        <div class="card" data-category="buggy">
+            </div>
+
+            <div class="card" data-category="buggy">
                 <div class="card-carousel">
                     <div class="carousel-container" id="carousel-buggy">
-                        <img src="src/buggy/Buggy1.jpg" alt="Buggy 1">
-                        <img src="src/buggy/Buggy2.jpg" alt="Buggy 2">
+                        <img src="src/buggy/Buggy.jpg" alt="Buggy 1">
+                        <img src="src/buggy/Buggy1.jpg" alt="Buggy 2">
                         <img src="src/buggy/Buggy3.jpg" alt="Buggy 3">
                     </div>
                     <button class="prev" onclick="moveSlide(-1, 'carousel-buggy')">&#10094;</button>
@@ -113,13 +115,14 @@
                     <div class="price">A partir de <span>R$ 400,00</span></div>
                     <button class="btn-card add-to-cart" data-name="Passeio de Buggy" data-price="400">Adicionar ao Roteiro</button>
                 </div>
-        </div>
-        <div class="card" data-category="barco">
+            </div>
+
+            <div class="card" data-category="barco">
                 <div class="card-carousel">
                     <div class="carousel-container" id="carousel-barco">
-                        <img src="src/lagoa-cocacola.jpg" alt="Barco 1">
-                        <img src="src/lagoa-cocacola2.jpg" alt="Barco 2">
-                        <img src="src/lagoa-cocacola3.jpg" alt="Barco 3">
+                        <img src="src/Barco/barco1.png" alt="Barco 1">
+                        <img src="src/Barco/barco2.png" alt="Barco 2">
+                        <img src="src/Barco/barco3.png" alt="Barco 3">
                     </div>
                     <button class="prev" onclick="moveSlide(-1, 'carousel-barco')">&#10094;</button>
                     <button class="next" onclick="moveSlide(1, 'carousel-barco')">&#10095;</button>
@@ -130,15 +133,19 @@
                     <div class="price">A partir de <span>R$ 400,00</span></div>
                     <button class="btn-card add-to-cart" data-name="Passeio de Barco" data-price="400">Adicionar ao Roteiro</button>
                 </div>
-    </section>
+            </div>
+        </div> </section>
 
     <a href="https://wa.me/5584999999999" class="whatsapp-float" target="_blank">
         <img src="src/whatsapp.png" alt="WhatsApp">
     </a>
- <footer>
+
+    <footer>
         <div class="container">
             <p>&copy; 2024 Explora Baia Formosa. Todos os direitos reservados.</p>
         </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

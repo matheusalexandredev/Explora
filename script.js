@@ -4,20 +4,16 @@ let cart = [];
 // --- LÓGICA DO CARROSSEL ---
 function moveSlide(direction, id) {
     const carousel = document.getElementById(id);
-    
     if (carousel) {
         const scrollAmount = carousel.offsetWidth;
         carousel.scrollBy({
             left: direction * scrollAmount,
             behavior: 'smooth'
         });
-    } else {
-        console.error(`Carrossel com ID "${id}" não encontrado.`);
     }
 }
 
 // --- LÓGICA DO CARRINHO ---
-
 function toggleCart() {
     const dropdown = document.getElementById('cart-dropdown');
     if (dropdown) {
@@ -30,11 +26,11 @@ function removeItem(index) {
     cart.splice(index, 1);
     updateCartUI();
     
-    // Só fecha automaticamente se o carrinho ficar totalmente vazio
+    // Fecha se esvaziar
     if (cart.length === 0) {
         setTimeout(() => {
             const dropdown = document.getElementById('cart-dropdown');
-            if (dropdown) dropdown.style.display = 'none';
+            if (dropdown && cart.length === 0) dropdown.style.display = 'none';
         }, 500);
     }
 }
@@ -67,10 +63,10 @@ function updateCartUI() {
     countSpan.innerText = cart.length;
 }
 
-// --- INICIALIZAÇÃO DE EVENTOS ---
+// --- INICIALIZAÇÃO ---
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Configura botões "Adicionar ao Roteiro"
+    // 1. Adicionar ao Roteiro
     document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', () => {
             const name = button.getAttribute('data-name');
@@ -84,33 +80,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Configura botão de Finalizar Reserva via WhatsApp
+    // 2. Checkout WhatsApp
     const checkoutBtn = document.getElementById('checkout-whatsapp');
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert("Seu roteiro está vazio!");
-                return;
-            }
+            if (cart.length === 0) return alert("Seu roteiro está vazio!");
 
+            let total = cart.reduce((acc, item) => acc + item.price, 0);
             let msg = "*NOVO ROTEIRO - EXPLORA BF*%0A%0A";
-            cart.forEach(item => {
-                msg += `• ${item.name} (R$ ${item.price.toFixed(2)})%0A`;
-            });
-            msg += `%0A💰 *TOTAL:* R$ ${document.getElementById('total-price').innerText}`;
+            cart.forEach(item => msg += `• ${item.name} (R$ ${item.price.toFixed(2)})%0A`);
+            msg += `%0A💰 *TOTAL:* R$ ${total.toFixed(2)}`;
             msg += `%0A%0A_Gostaria de verificar disponibilidade para estes passeios._`;
             
-            const numero = "5584999999999"; 
-            window.open(`https://wa.me/${numero}?text=${msg}`, '_blank');
+            window.open(`https://wa.me/5584999999999?text=${msg}`, '_blank');
         });
     }
 
-    // Fecha o carrinho se o usuário clicar fora dele (CORRIGIDO)
+    // 3. Fechar ao clicar fora
     window.addEventListener('click', (e) => {
         const dropdown = document.getElementById('cart-dropdown');
         const cartContainer = document.querySelector('.nav-cart-container');
-        
-        // Verifica se o menu está aberto e se o clique foi fora de todo o container do carrinho
         if (dropdown && dropdown.style.display === 'block') {
             if (cartContainer && !cartContainer.contains(e.target)) {
                 dropdown.style.display = 'none';
@@ -118,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- LÓGICA DE FILTRAGEM ---
+    // 4. Lógica de Filtragem (Melhorada)
     const filterButtons = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.card');
 
@@ -129,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const filterValue = button.getAttribute('data-filter');
             cards.forEach(card => {
+                // Se for 'todos' ou a categoria bater, mostra
                 if (filterValue === 'todos' || card.getAttribute('data-category') === filterValue) {
                     card.style.display = 'block';
                 } else {
