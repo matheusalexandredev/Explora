@@ -590,6 +590,34 @@ footer {
     max-height: 250px;
     overflow-y: auto;
     margin-bottom: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-orange) var(--bg-color);
+    padding-right: 5px; /* Espaço para a scrollbar não colar no texto */
+}
+
+#cart-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+#cart-items::-webkit-scrollbar-track {
+    background: var(--bg-color);
+    border-radius: 10px;
+}
+
+#cart-items::-webkit-scrollbar-thumb {
+    background: var(--primary-orange);
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+#cart-items::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-orange);
+}
+
+/* Máscara opcional para fade no fim da lista */
+#cart-items {
+    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
 
 /* Item Individual */
