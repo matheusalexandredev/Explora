@@ -630,46 +630,83 @@ footer {
     background: #ffffff;
 }
 
+/* Container principal do Mapa */
 #map-element {
     flex: 1.5;
     min-width: 320px;
     height: 450px;
-    z-index: 1; /* Garante que o mapa não sobreponha menus fixos */
+    border-radius: 20px; /* Igual aos seus cards */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra suave do site */
+    z-index: 1;
+    border: 1px solid #eee;
 }
 
+/* Pequena etiqueta sobre o mapa/local */
 .badge {
-    background: #e1f5fe;
-    color: #0288d1;
-    padding: 5px 12px;
+    background: var(--primary-orange); /* Seu laranja */
+    color: white;
+    padding: 6px 15px;
     border-radius: 50px;
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 11px;
+    font-weight: 800; /* Peso da Montserrat que você usa */
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* Container dos botões de ação */
 .map-actions {
     display: flex;
-    gap: 10px;
-    margin-top: 30px;
+    gap: 15px;
+    margin-top: 25px;
 }
 
+/* Estilo base dos botões Google/Waze */
 .map-btn {
     flex: 1;
     text-align: center;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 15px;
+    border-radius: 12px; /* Arredondamento dos botões do card */
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 14px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-.google { background: #4285F4; color: white; }
-.waze { background: #33CCFF; color: white; }
-.map-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+/* Botão Google Maps - Usando tom escuro para contraste */
+.google { 
+    background: var(--text-dark); 
+    color: white; 
+}
+
+/* Botão Waze - Usando seu laranja principal */
+.waze { 
+    background: var(--primary-orange); 
+    color: white; 
+}
+
+/* Efeito de Hover igual aos outros botões do site */
+.map-btn:hover { 
+    opacity: 0.9; 
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .map-wrapper { flex-direction: column; }
-    #map-element { height: 300px; width: 100%; }
+    .map-wrapper { 
+        flex-direction: column; 
+    }
+    #map-element { 
+        height: 300px; 
+        width: 100%; 
+        min-width: unset;
+    }
+    .map-actions {
+        flex-direction: column; /* Botões empilhados no celular */
+    }
 }
