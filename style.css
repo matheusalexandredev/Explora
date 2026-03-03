@@ -9,7 +9,7 @@
   --transition: all 0.3s ease;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   --shadow-btn: 0 4px 15px rgba(255, 122, 0, 0.3);
-  
+
   /* Tema Claro (padrão) */
   --bg-color: #fafafa;
   --section-bg: #ffffff;
@@ -88,7 +88,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
 }
 
 .logo {
@@ -129,8 +129,7 @@ nav {
   width: 100%;
   height: 85vh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=2070")
-      no-repeat center center/cover;
+    url("https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=2070") no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -488,10 +487,12 @@ nav {
     bottom: 20px;
     right: 20px;
   }
+
   .whatsapp-float img {
     width: 28px;
     height: 28px;
   }
+
   .cart-content {
     width: 95%;
     padding: 20px;
@@ -555,122 +556,132 @@ footer {
 
 /* Container do Dropdown */
 .cart-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 340px;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    margin-top: 15px;
-    z-index: 1001;
-    animation: fadeInSlide 0.3s ease-out;
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 340px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  margin-top: 15px;
+  z-index: 1001;
+  animation: fadeInSlide 0.3s ease-out;
 }
 
 /* Animação de entrada suave */
 @keyframes fadeInSlide {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .cart-dropdown h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.2rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: var(--text-main);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--text-main);
 }
 
 /* Lista de Itens */
 #cart-items {
-    list-style: none;
-    max-height: 250px;
-    overflow-y: auto;
-    margin-bottom: 20px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-orange) var(--bg-color);
-    padding-right: 5px; /* Espaço para a scrollbar não colar no texto */
+  list-style: none;
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-orange) var(--bg-color);
+  padding-right: 5px;
+  /* Espaço para a scrollbar não colar no texto */
 }
 
 #cart-items::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 #cart-items::-webkit-scrollbar-track {
-    background: var(--bg-color);
-    border-radius: 10px;
+  background: var(--bg-color);
+  border-radius: 10px;
 }
 
 #cart-items::-webkit-scrollbar-thumb {
-    background: var(--primary-orange);
-    border-radius: 10px;
-    opacity: 0.5;
+  background: var(--primary-orange);
+  border-radius: 10px;
+  opacity: 0.5;
 }
 
 #cart-items::-webkit-scrollbar-thumb:hover {
-    background: var(--dark-orange);
+  background: var(--dark-orange);
 }
 
 /* Máscara opcional para fade no fim da lista */
 #cart-items {
-    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
 
 /* Item Individual */
 .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 /* Footer do Carrinho */
 .cart-footer {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 2px solid var(--border-color);
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 2px solid var(--border-color);
 }
 
 .cart-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: var(--text-main); /* Corrigido o contraste do texto Total */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-main);
+  /* Corrigido o contraste do texto Total */
 }
 
 .cart-total span#total-price {
-    font-size: 1.4rem;
-    color: var(--primary-orange);
-    font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--primary-orange);
+  font-weight: 800;
 }
 
 /* Botão de Reservar (O destaque da imagem) */
 #checkout-whatsapp {
-    width: 100%;
-    background: var(--primary-orange);
-    color: white;
-    padding: 16px;
-    border-radius: 50px; /* Bordas bem arredondadas como na imagem */
-    border: none;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(255, 122, 0, 0.3);
+  width: 100%;
+  background: var(--primary-orange);
+  color: white;
+  padding: 16px;
+  border-radius: 50px;
+  /* Bordas bem arredondadas como na imagem */
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(255, 122, 0, 0.3);
 }
 
 #checkout-whatsapp:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(255, 122, 0, 0.4);
-    background: var(--dark-orange);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 122, 0, 0.4);
+  background: var(--dark-orange);
 }
 
 /* Triângulo indicador do dropdown */
@@ -683,119 +694,127 @@ footer {
   border-right: 8px solid transparent;
   border-bottom: 8px solid white;
 }
+
 .cart-item-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
 }
 
 .remove-item {
-    background: none;
-    border: none;
-    color: #ff4d4d;
-    cursor: pointer;
-    font-size: 1.1rem;
-    padding: 0 5px;
-    transition: transform 0.2s;
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0 5px;
+  transition: transform 0.2s;
 }
 
 .remove-item:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
+
 .section-tour-map {
-    padding: 60px 5%;
-    background-color: var(--section-bg);
-    transition: background-color 0.3s ease;
+  padding: 60px 5%;
+  background-color: var(--section-bg);
+  transition: background-color 0.3s ease;
 }
 
 .map-wrapper {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: var(--card-bg);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-    flex-wrap: wrap;
-    transition: background-color 0.3s ease;
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  flex-wrap: wrap;
+  transition: background-color 0.3s ease;
 }
 
 .map-info-box {
-    flex: 1;
-    min-width: 320px;
-    padding: 40px;
-    background: var(--card-bg);
-    color: var(--text-color);
+  flex: 1;
+  min-width: 320px;
+  padding: 40px;
+  background: var(--card-bg);
+  color: var(--text-color);
 }
 
 /* Container principal do Mapa */
 #map-element {
-    flex: 1.5;
-    min-width: 320px;
-    height: 450px;
-    border-radius: 20px; /* Igual aos seus cards */
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra suave do site */
-    z-index: 1;
-    border: 1px solid #eee;
+  flex: 1.5;
+  min-width: 320px;
+  height: 450px;
+  border-radius: 20px;
+  /* Igual aos seus cards */
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  /* Sombra suave do site */
+  z-index: 1;
+  border: 1px solid #eee;
 }
 
 /* Pequena etiqueta sobre o mapa/local */
 .badge {
-    background: var(--primary-orange); /* Seu laranja */
-    color: white;
-    padding: 6px 15px;
-    border-radius: 50px;
-    font-size: 11px;
-    font-weight: 800; /* Peso da Montserrat que você usa */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    top: -10px; /* Quanto maior o número negativo, mais ela sobe */
+  background: var(--primary-orange);
+  /* Seu laranja */
+  color: white;
+  padding: 6px 15px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 800;
+  /* Peso da Montserrat que você usa */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  top: -10px;
+  /* Quanto maior o número negativo, mais ela sobe */
 }
 
 /* Container dos botões de ação */
 .map-actions {
-    display: flex;
-    gap: 15px;
-    margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
 }
 
 /* Estilo base dos botões Google/Waze */
 .map-btn {
-    flex: 1;
-    text-align: center;
-    padding: 15px;
-    border-radius: 12px; /* Arredondamento dos botões do card */
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  flex: 1;
+  text-align: center;
+  padding: 15px;
+  border-radius: 12px;
+  /* Arredondamento dos botões do card */
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 /* Botão Google Maps - Usando tom escuro para contraste */
-.google { 
-    background: var(--text-dark); 
-    color: white; 
+.google {
+  background: var(--text-dark);
+  color: white;
 }
 
 /* Botão Waze - Usando seu laranja principal */
-.waze { 
-    background: var(--primary-orange); 
-    color: white; 
+.waze {
+  background: var(--primary-orange);
+  color: white;
 }
 
 /* Efeito de Hover igual aos outros botões do site */
-.map-btn:hover { 
-    opacity: 0.9; 
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.map-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsividade */
@@ -803,350 +822,382 @@ footer {
   .nav-links {
     display: none;
   }
+
   .hero-btns {
     flex-direction: column;
   }
+
   .destinos-grid {
     grid-template-columns: 1fr;
   }
+
   .whatsapp-float {
     width: 50px;
     height: 50px;
     bottom: 20px;
     right: 20px;
   }
+
   .whatsapp-float img {
     width: 28px;
     height: 28px;
   }
+
   .cart-content {
     width: 95%;
     padding: 20px;
   }
-  .map-wrapper { 
-    flex-direction: column; 
+
+  .map-wrapper {
+    flex-direction: column;
   }
-  #map-element { 
-    height: 300px; 
-    width: 100%; 
+
+  #map-element {
+    height: 300px;
+    width: 100%;
     min-width: unset;
   }
+
   .map-actions {
     flex-direction: column;
   }
 }
+
 #theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
 }
 
 #theme-toggle:hover {
-    transform: scale(1.1);
-    background: rgba(255, 122, 0, 0.1);
+  transform: scale(1.1);
+  background: rgba(255, 122, 0, 0.1);
 }
 
 /* Esconde o sol no modo claro e a lua no modo escuro */
-[data-theme="dark"] .sun { display: block; }
-[data-theme="dark"] .moon { display: none; }
+[data-theme="dark"] .sun {
+  display: block;
+}
 
-.sun { display: none; }
-.moon { display: block; }
+[data-theme="dark"] .moon {
+  display: none;
+}
+
+.sun {
+  display: none;
+}
+
+.moon {
+  display: block;
+}
 
 .theme-switch {
-    list-style: none;
+  list-style: none;
 }
+
 /* --- Seção Sobre Nós --- */
 .section-about {
-    padding: 100px 0;
-    background-color: var(--bg-body); /* Segue o tema claro/escuro */
-    transition: var(--transition);
+  padding: 100px 0;
+  background-color: var(--bg-body);
+  /* Segue o tema claro/escuro */
+  transition: var(--transition);
 }
 
 .about-content {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    flex-wrap: wrap; /* Garante que quebre no mobile */
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  /* Garante que quebre no mobile */
 }
 
 .about-text {
-    flex: 1;
-    min-width: 300px;
+  flex: 1;
+  min-width: 300px;
 }
 
 .about-text h2 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 25px;
-    color: var(--text-main);
-    position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  color: var(--text-main);
+  position: relative;
 }
 
 /* Linha decorativa embaixo do título */
 .about-text h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--primary-orange);
-    margin-top: 10px;
-    border-radius: 2px;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-orange);
+  margin-top: 10px;
+  border-radius: 2px;
 }
 
 .about-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-soft);
-    margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-soft);
+  margin-bottom: 20px;
 }
 
 .about-image {
-    flex: 1;
-    min-width: 300px;
-    position: relative;
+  flex: 1;
+  min-width: 300px;
+  position: relative;
 }
 
 .about-image img {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: var(--shadow-card);
-    transition: var(--transition);
-    display: block;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  display: block;
 }
 
 /* Efeito decorativo atrás da imagem */
 .about-image::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 100px;
-    height: 100px;
-    background: var(--primary-orange);
-    border-radius: 20px;
-    z-index: -1;
-    opacity: 0.2;
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: var(--primary-orange);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0.2;
 }
 
 /* --- Responsividade Sobre Nós --- */
 @media (max-width: 992px) {
-    .about-content {
-        gap: 40px;
-    }
-    
-    .about-text h2 {
-        font-size: 2rem;
-    }
+  .about-content {
+    gap: 40px;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-    .section-about {
-        padding: 60px 0;
-    }
-    
-    .about-content {
-        flex-direction: column; /* Texto em cima, imagem embaixo */
-        text-align: center;
-    }
+  .section-about {
+    padding: 60px 0;
+  }
 
-    .about-text h2::after {
-        margin: 10px auto 0; /* Centraliza a linha no mobile */
-    }
-    
-    .about-image {
-        width: 100%;
-    }
+  .about-content {
+    flex-direction: column;
+    /* Texto em cima, imagem embaixo */
+    text-align: center;
+  }
+
+  .about-text h2::after {
+    margin: 10px auto 0;
+    /* Centraliza a linha no mobile */
+  }
+
+  .about-image {
+    width: 100%;
+  }
 }
+
 /* --- Seção de Depoimentos --- */
 .section-testimonials {
-    padding: 100px 0;
-    background-color: var(--bg-secondary); /* Usa o fundo alternativo do seu site */
-    text-align: center;
-    transition: var(--transition);
+  padding: 100px 0;
+  background-color: var(--bg-secondary);
+  /* Usa o fundo alternativo do seu site */
+  text-align: center;
+  transition: var(--transition);
 }
 
 .section-testimonials h2 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 50px;
-    color: var(--text-main);
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 50px;
+  color: var(--text-main);
 }
 
 .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
 .testimonial-card {
-    background-color: var(--bg-card);
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: var(--shadow-card);
-    transition: var(--transition);
-    border: 1px solid var(--border-color);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  background-color: var(--bg-card);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .testimonial-card:hover {
-    transform: translateY(-10px);
+  transform: translateY(-10px);
 }
 
 /* Aspas decorativas */
 .testimonial-card::before {
-    content: "'";
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-size: 5rem;
-    color: var(--primary-orange);
-    opacity: 0.2;
-    font-family: serif;
+  content: "'";
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 5rem;
+  color: var(--primary-orange);
+  opacity: 0.2;
+  font-family: serif;
 }
 
 .testimonial-card p {
-    font-style: italic;
-    line-height: 1.7;
-    color: var(--text-soft);
-    margin-bottom: 25px;
-    font-size: 1.05rem;
-    position: relative;
-    z-index: 1;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--text-soft);
+  margin-bottom: 25px;
+  font-size: 1.05rem;
+  position: relative;
+  z-index: 1;
 }
 
 .testimonial-card h3 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--primary-orange);
-    margin-top: auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-orange);
+  margin-top: auto;
 }
 
 /* Ajuste específico para o Dark Mode */
 [data-theme="dark"] .testimonial-card {
-    background-color: var(--bg-card); /* Garante que o card fique levemente mais claro que o fundo body */
+  background-color: var(--bg-card);
+  /* Garante que o card fique levemente mais claro que o fundo body */
 }
 
 /* --- Responsividade Depoimentos --- */
 @media (max-width: 768px) {
-    .section-testimonials {
-        padding: 60px 0;
-    }
-    
-    .section-testimonials h2 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
+  .section-testimonials {
+    padding: 60px 0;
+  }
 
-    .testimonial-card {
-        padding: 30px 20px;
-    }
+  .section-testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .testimonial-card {
+    padding: 30px 20px;
+  }
 }
+
 /* Estilo Principal do Footer */
 .main-footer {
-    background-color: #1a1a1a; /* Cinza quase preto */
-    color: #ffffff;
-    padding: 60px 0 20px;
-    font-size: 0.95rem;
+  background-color: #1a1a1a;
+  /* Cinza quase preto */
+  color: #ffffff;
+  padding: 60px 0 20px;
+  font-size: 0.95rem;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
 }
 
 .footer-column {
-    flex: 1;
-    min-width: 250px; /* Garante que as colunas quebrem linha em telas menores */
+  flex: 1;
+  min-width: 250px;
+  /* Garante que as colunas quebrem linha em telas menores */
 }
 
 /* Títulos das Colunas */
-.footer-column h3, .footer-column h4 {
-    color: #ff7a00; 
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.footer-column h3,
+.footer-column h4 {
+  color: #ff7a00;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .footer-column p {
-    line-height: 1.6;
-    color: #cccccc;
+  line-height: 1.6;
+  color: #cccccc;
 }
 
 /* Estilização de Listas e Links */
 .footer-column ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .footer-column ul li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .footer-column ul li a {
-    color: #cccccc;
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .footer-column ul li a:hover {
-    color: #ff7a00;
-    padding-left: 5px; /* Efeito sutil ao passar o mouse */
+  color: #ff7a00;
+  padding-left: 5px;
+  /* Efeito sutil ao passar o mouse */
 }
 
 /* Redes Sociais */
 .social-links {
-    margin-top: 20px;
-    display: flex;
-    gap: 15px;
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
 }
 
 .social-links a {
-    color: #ffffff;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
 }
 
 .social-links a:hover {
-    color: #ff7a00;
-    transform: translateY(-3px);
+  color: #ff7a00;
+  transform: translateY(-3px);
 }
 
 /* Linha de Direitos Autorais */
 .footer-bottom {
-    border-top: 1px solid #333;
-    padding-top: 20px;
-    text-align: center;
-    color: #777;
-    font-size: 0.85rem;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 0.85rem;
 }
 
 /* Ajustes para Mobile */
 @media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
 }
