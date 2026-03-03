@@ -652,6 +652,8 @@ footer {
     font-weight: 800; /* Peso da Montserrat que você usa */
     text-transform: uppercase;
     letter-spacing: 1px;
+    position: relative;
+    top: -10px; /* Quanto maior o número negativo, mais ela sobe */
 }
 
 /* Container dos botões de ação */
