@@ -152,22 +152,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme');
+    const root = document.documentElement;
+    const currentTheme = localStorage.getItem('theme') || 'light';
 
-    // Verifica se já existe uma preferência salva
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
+    // Aplica o tema salvo ou padrão ao carregar
+    root.setAttribute('data-theme', currentTheme);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            let theme = root.getAttribute('data-theme');
+            
+            if (theme === 'dark') {
+                root.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                root.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
     }
-
-    themeToggle.addEventListener('click', () => {
-        let theme = document.documentElement.getAttribute('data-theme');
-        
-        if (theme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
 });
