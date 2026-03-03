@@ -150,3 +150,25 @@ document.addEventListener('DOMContentLoaded', function() {
     marker.bindPopup("<b>Nossa Sede</b><br>Estamos esperando você!").openPopup();
     
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    // Aplica o tema salvo ou padrão ao carregar
+    root.setAttribute('data-theme', currentTheme);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            let theme = root.getAttribute('data-theme');
+            
+            if (theme === 'dark') {
+                root.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                root.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
+});

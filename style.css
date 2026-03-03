@@ -9,6 +9,22 @@
   --transition: all 0.3s ease;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   --shadow-btn: 0 4px 15px rgba(255, 122, 0, 0.3);
+  
+  /* Tema Claro (padrão) */
+  --bg-color: #fafafa;
+  --section-bg: #ffffff;
+  --text-color: #1a1a1a;
+  --card-bg: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] {
+  /* Cores Modo Escuro */
+  --bg-color: #121212;
+  --section-bg: #1e1e1e;
+  --text-color: #f0f0f0;
+  --card-bg: #252525;
+  --nav-bg: rgba(18, 18, 18, 0.95);
 }
 
 * {
@@ -42,9 +58,10 @@ html::-webkit-scrollbar-thumb:hover {
 body {
   width: 100%;
   font-family: "Inter", sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -56,12 +73,13 @@ body {
 /* --- Header --- */
 header {
   width: 100%;
-  background-color: var(--white);
+  background-color: var(--nav-bg);
   padding: 15px 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
 nav {
@@ -75,6 +93,7 @@ nav {
   font-family: "Montserrat", sans-serif;
   font-size: 1.4rem;
   font-weight: 800;
+  color: var(--text-color);
 }
 
 .logo span {
@@ -90,7 +109,7 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text-dark);
+  color: var(--text-color);
   font-weight: 600;
   transition: var(--transition);
 }
@@ -209,13 +228,14 @@ nav {
 }
 
 .cart-content {
-  background: white;
+  background: var(--card-bg);
   padding: 30px;
   border-radius: 20px;
   width: 90%;
   max-width: 450px;
   text-align: center;
   box-shadow: var(--shadow);
+  color: var(--text-color);
 }
 
 .cart-details {
@@ -303,7 +323,7 @@ nav {
 
 /* --- Card e Carrossel --- */
 .card {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -406,28 +426,6 @@ nav {
   cursor: pointer;
 }
 
-/* --- Estilos do Carrinho (Modal) --- */
-.cart-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-}
-
-.cart-content {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 450px;
-  text-align: center;
-  position: relative;
-}
-
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -505,7 +503,8 @@ nav {
 /* --- Features --- */
 .features {
   padding: 80px 0;
-  background: #ffffff;
+  background: var(--section-bg);
+  transition: background-color 0.3s ease;
 }
 
 .grid-3 {
@@ -530,21 +529,12 @@ nav {
 footer {
   padding: 50px 0;
   text-align: center;
-  background: #eee;
+  background: var(--section-bg);
+  color: var(--text-color);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* --- Mobile --- */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-  .hero-btns {
-    flex-direction: column;
-  }
-  .destinos-grid {
-    grid-template-columns: 1fr;
-  }
-}
+
 
 /* Container do Carrinho na Nav */
 .nav-cart-container {
@@ -568,12 +558,13 @@ footer {
   top: 100%;
   right: 0;
   width: 320px;
-  background: white;
+  background: var(--card-bg);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   padding: 20px;
   z-index: 1001;
   margin-top: 10px;
+  color: var(--text-color);
 }
 
 /* Triângulo indicador do dropdown */
@@ -609,25 +600,28 @@ footer {
 }
 .section-tour-map {
     padding: 60px 5%;
-    background-color: #f9f9f9;
+    background-color: var(--section-bg);
+    transition: background-color 0.3s ease;
 }
 
 .map-wrapper {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
-    background: #fff;
+    background: var(--card-bg);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-    flex-wrap: wrap; /* Ajuste para mobile */
+    flex-wrap: wrap;
+    transition: background-color 0.3s ease;
 }
 
 .map-info-box {
     flex: 1;
     min-width: 320px;
     padding: 40px;
-    background: #ffffff;
+    background: var(--card-bg);
+    color: var(--text-color);
 }
 
 /* Container principal do Mapa */
@@ -700,15 +694,68 @@ footer {
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .map-wrapper { 
-        flex-direction: column; 
-    }
-    #map-element { 
-        height: 300px; 
-        width: 100%; 
-        min-width: unset;
-    }
-    .map-actions {
-        flex-direction: column; /* Botões empilhados no celular */
-    }
+  .nav-links {
+    display: none;
+  }
+  .hero-btns {
+    flex-direction: column;
+  }
+  .destinos-grid {
+    grid-template-columns: 1fr;
+  }
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+  .whatsapp-float img {
+    width: 28px;
+    height: 28px;
+  }
+  .cart-content {
+    width: 95%;
+    padding: 20px;
+  }
+  .map-wrapper { 
+    flex-direction: column; 
+  }
+  #map-element { 
+    height: 300px; 
+    width: 100%; 
+    min-width: unset;
+  }
+  .map-actions {
+    flex-direction: column;
+  }
+}
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(255, 122, 0, 0.1);
+}
+
+/* Esconde o sol no modo claro e a lua no modo escuro */
+[data-theme="dark"] .sun { display: block; }
+[data-theme="dark"] .moon { display: none; }
+
+.sun { display: none; }
+.moon { display: block; }
+
+.theme-switch {
+    list-style: none;
 }
