@@ -129,23 +129,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Defina a localização (Exemplo: Baía Formosa)
-    const lat = -6.3687;
-    const lng = -35.0114;
+    // 1. Nova localização
+    const lat = -6.368306;
+    const lng = -35.007528;
 
     // 2. Inicializa o mapa
     const map = L.map('map-element', {
-        scrollWheelZoom: false // Evita que o zoom ative ao dar scroll na página
+        scrollWheelZoom: false
     }).setView([lat, lng], 15);
 
-    // 3. Adiciona o design do mapa (OpenStreetMap)
+    // 3. Camada OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
     }).addTo(map);
 
-    // 4. Ícone personalizado (Opcional - usando o padrão por enquanto)
+    // 4. Marcador
     const marker = L.marker([lat, lng]).addTo(map);
     
-    // 5. Popup amigável
+    // 5. Popup
     marker.bindPopup("<b>Nossa Sede</b><br>Estamos esperando você!").openPopup();
+    
 });
