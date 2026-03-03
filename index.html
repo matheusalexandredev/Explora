@@ -133,8 +133,41 @@
                     <div class="price">A partir de <span>R$ 400,00</span></div>
                     <button class="btn-card add-to-cart" data-name="Passeio de Barco" data-price="400">Adicionar ao Roteiro</button>
                 </div>
+        </div>
+    </section>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<section class="section-tour-map">
+    <div class="map-wrapper">
+        <div class="map-info-box">
+            <span class="badge">Nossa Base</span>
+            <h2>Venha nos Visitar</h2>
+            <p class="address">Rua das Esmeraldas, 123 - Baía Formosa, RN</p>
+            
+            <div class="arrival-details">
+                <div class="detail-item">
+                    <strong>📍 Referência:</strong> Próximo ao Mirante da Cacimba.
+                </div>
+                <div class="detail-item">
+                    <strong>🚗 Estacionamento:</strong> Vagas exclusivas no local.
+                </div>
             </div>
-        </div> </section>
+
+            <div class="map-actions">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=-6.3687,-35.0114" target="_blank" class="map-btn google">
+                    Google Maps
+                </a>
+                <a href="https://waze.com/ul?ll=-6.3687,-35.0114&navigate=yes" target="_blank" class="map-btn waze">
+                    Waze
+                </a>
+            </div>
+        </div>
+
+        <div id="map-element"></div>
+    </div>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <a href="https://wa.me/5584999999999" class="whatsapp-float" target="_blank">
         <img src="src/whatsapp.png" alt="WhatsApp">
