@@ -112,9 +112,9 @@ function enviarReserva() {
         ` *WhatsApp:* ${tel}\n` +
         ` *Data:* ${data}\n` +
         ` *Pessoas:* ${qtd}\n\n` +
-        ` *ROTEIRO SELECIONADO:*\n${itensTexto}\n` +
-        ` *TOTAL ESTIMADO:* ${total}\n` +
-        obsTexto
+        ` *ROTEIRO SELECIONADO:*\n${itensTexto}` +
+        obsTexto +
+        `\n *TOTAL ESTIMADO:* ${total}\n`
     );
 
     const numeroWhats = "5584991951206";
