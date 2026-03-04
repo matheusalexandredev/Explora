@@ -1,4 +1,3 @@
-// --- ESTADO GLOBAL ---
 let cart = [];
 
 // --- LÓGICA DO CARROSSEL ---
