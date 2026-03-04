@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explora Baia Formosa | Sua Aventura Começa Aqui</title>
     <link rel="icon" type="image/png" href="src/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <nav class="container">
             <div class="logo">Explora <span>Baia Formosa</span></div>
             <li class="theme-switch">
-    <button id="theme-toggle" title="Alternar tema">
-        <span class="sun">☀️</span>
-        <span class="moon">🌙</span>
-    </button>
-</li>
-            <ul class="nav-links">  
+                <button id="theme-toggle" title="Alternar tema">
+                    <span class="sun">☀️</span>
+                    <span class="moon">🌙</span>
+                </button>
+            </li>
+            <ul class="nav-links">
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#destinos">Destinos</a></li>
-                
+
                 <li class="nav-cart-container">
                     <button class="cart-toggle-btn" onclick="toggleCart()">
                         🛒 <span id="cart-count">0</span>
                     </button>
-                    
+
                     <div id="cart-dropdown" class="cart-dropdown">
                         <h3>Seu Roteiro</h3>
-                        <ul id="cart-items"></ul> 
-                        
+                        <ul id="cart-items"></ul>
+
                         <div class="cart-footer">
                             <div class="cart-total">Total: R$ <span id="total-price">0.00</span></div>
                             <button id="checkout-whatsapp" class="btn-primary">Reservar agora</button>
@@ -82,7 +85,8 @@
                     <h3>Lagoa da Coca-Cola</h3>
                     <p>Águas escuras e mornas com propriedades medicinais únicas.</p>
                     <div class="price">A partir de <span>R$ 600,00</span></div>
-                    <button class="btn-card add-to-cart" data-name="Lagoa da Coca-Cola" data-price="600">Adicionar ao Roteiro</button>
+                    <button class="btn-card add-to-cart" data-name="Lagoa da Coca-Cola" data-price="600">Adicionar ao
+                        Roteiro</button>
                 </div>
             </div>
 
@@ -100,7 +104,8 @@
                     <h3>Praia do Sagi</h3>
                     <p>Banho de lama, perfeita para relaxar e se aventurar.</p>
                     <div class="price">A partir de <span>R$ 400,00</span></div>
-                    <button class="btn-card add-to-cart" data-name="Praia do Sagi" data-price="400">Adicionar ao Roteiro</button>
+                    <button class="btn-card add-to-cart" data-name="Praia do Sagi" data-price="400">Adicionar ao
+                        Roteiro</button>
                 </div>
             </div>
 
@@ -118,7 +123,8 @@
                     <h3>Aventura sobre 4 rodas</h3>
                     <p>Passeio de Buggy conhecendo as praias de Baia Formosa | RN.</p>
                     <div class="price">A partir de <span>R$ 400,00</span></div>
-                    <button class="btn-card add-to-cart" data-name="Passeio de Buggy" data-price="400">Adicionar ao Roteiro</button>
+                    <button class="btn-card add-to-cart" data-name="Passeio de Buggy" data-price="400">Adicionar ao
+                        Roteiro</button>
                 </div>
             </div>
 
@@ -136,101 +142,114 @@
                     <h3>Passeio de Barco</h3>
                     <p>Explore as águas cristalinas e a costa deslumbrante de Baia Formosa.</p>
                     <div class="price">A partir de <span>R$ 400,00</span></div>
-                    <button class="btn-card add-to-cart" data-name="Passeio de Barco" data-price="400">Adicionar ao Roteiro</button>
+                    <button class="btn-card add-to-cart" data-name="Passeio de Barco" data-price="400">Adicionar ao
+                        Roteiro</button>
                 </div>
-        </div>
+            </div>
     </section>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<section class="section-about">
-    <div class="container about-content">
-        <div class="about-text">
-            <h2>Sobre Nós</h2>
-            <p>Na Explora Baia Formosa, somos apaixonados por criar experiências de viagem únicas e memoráveis. Fundada por um grupo de aventureiros locais, nossa missão é compartilhar a beleza e a cultura de Baia Formosa com o mundo, oferecendo passeios personalizados e atendimento excepcional.</p>
-            <p>Com anos de experiência no setor de turismo, nossa equipe conhece cada canto desta região paradisíaca e está comprometida em proporcionar momentos inesquecíveis para nossos clientes. Seja você um viajante solo, um casal ou uma família, temos o passeio perfeito para você explorar as maravilhas de Baia Formosa.</p>
-        </div>
-        <div class="about-image">
-            <img src="src/profissionais.png" alt="Sobre Nós">
-        </div>
-    </div>
-</section>
-<section class="section-testimonials">
-    <div class="container">
-        <h2>O que nossos clientes dizem</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p>"A experiência foi incrível! O passeio de buggy pelas praias de Baia Formosa foi emocionante e a equipe foi super atenciosa. Recomendo a todos!"</p>
-                <h3>Fatima</h3>
+    <section class="section-about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>Sobre Nós</h2>
+                <p>Na Explora Baia Formosa, somos apaixonados por criar experiências de viagem únicas e memoráveis.
+                    Fundada por um grupo de aventureiros locais, nossa missão é compartilhar a beleza e a cultura de
+                    Baia Formosa com o mundo, oferecendo passeios personalizados e atendimento excepcional.</p>
+                <p>Com anos de experiência no setor de turismo, nossa equipe conhece cada canto desta região paradisíaca
+                    e está comprometida em proporcionar momentos inesquecíveis para nossos clientes. Seja você um
+                    viajante solo, um casal ou uma família, temos o passeio perfeito para você explorar as maravilhas de
+                    Baia Formosa.</p>
             </div>
-            <div class="testimonial-card">
-                <p>"Fiz o passeio de barco e fiquei encantado com as paisagens. A organização foi impecável e o guia nos contou histórias fascinantes sobre a região."</p>
-                <h3>Klysmann</h3>
-            </div>
-            <div class="testimonial-card">
-                <p>"O passeio de quadriciclo na Lagoa da Coca-Cola foi uma aventura inesquecível. As águas escuras são realmente mágicas e a equipe fez tudo para garantir nossa segurança e diversão."</p>
-                <h3>Matheus A</h3>
+            <div class="about-image">
+                <img src="src/profissionais.png" alt="Sobre Nós">
             </div>
         </div>
-    </div>
-</section>
-<section class="section-tour-map">
-    <div class="map-wrapper">
-        <div class="map-info-box">
-            <span class="badge">Nossa Sede</span>
-            <h2>Venha nos Visitar</h2>
-            <p class="address">Rua João Porfírio de Souza, 73 - Baía Formosa, RN</p>
-            
-            <div class="arrival-details">
-                <div class="detail-item">
-                    <strong>Referência:</strong> Próximo ao Bar Pôr do Sol.
+    </section>
+    <section class="section-testimonials">
+        <div class="container">
+            <h2>O que nossos clientes dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"A experiência foi incrível! O passeio de buggy pelas praias de Baia Formosa foi emocionante e a
+                        equipe foi super atenciosa. Recomendo a todos!"</p>
+                    <h3>Fatima</h3>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Fiz o passeio de barco e fiquei encantado com as paisagens. A organização foi impecável e o guia
+                        nos contou histórias fascinantes sobre a região."</p>
+                    <h3>Klysmann</h3>
+                </div>
+                <div class="testimonial-card">
+                    <p>"O passeio de quadriciclo na Lagoa da Coca-Cola foi uma aventura inesquecível. As águas escuras
+                        são realmente mágicas e a equipe fez tudo para garantir nossa segurança e diversão."</p>
+                    <h3>Matheus A</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-tour-map">
+        <div class="map-wrapper">
+            <div class="map-info-box">
+                <span class="badge">Nossa Sede</span>
+                <h2>Venha nos Visitar</h2>
+                <p class="address">Rua João Porfírio de Souza, 73 - Baía Formosa, RN</p>
+
+                <div class="arrival-details">
+                    <div class="detail-item">
+                        <strong>Referência:</strong> Próximo ao Bar Pôr do Sol.
+                    </div>
+                </div>
+
+                <div class="map-actions">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-6.368306,-35.007528" target="_blank"
+                        class="map-btn google">
+                        Google Maps
+                    </a>
+                    <a href="https://waze.com/ul?ll=-6.368306,-35.007528&navigate=yes" target="_blank"
+                        class="map-btn waze">
+                        Waze
+                    </a>
                 </div>
             </div>
 
-<div class="map-actions">
-    <a href="https://www.google.com/maps/dir/?api=1&destination=-6.368306,-35.007528" target="_blank" class="map-btn google">
-        Google Maps
-    </a>
-    <a href="https://waze.com/ul?ll=-6.368306,-35.007528&navigate=yes" target="_blank" class="map-btn waze">
-        Waze
-    </a>
-</div>
+            <div id="map-element"></div>
         </div>
+    </section>
 
-        <div id="map-element"></div>
-    </div>
-</section>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <a href="https://wa.me/5584999999999" class="whatsapp-float" target="_blank">
         <img src="src/whatsapp.png" alt="WhatsApp">
     </a>
 
     <footer class="main-footer">
-    <div class="container footer-content">
-        <div class="footer-column about">
-            <h3>Explora BF</h3>
-            <p>Sua porta de entrada para as maravilhas naturais de Baía Formosa. Experiências autênticas entre o mar e a mata.</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <div class="container footer-content">
+            <div class="footer-column about">
+                <h3>Explora BF</h3>
+                <p>Sua porta de entrada para as maravilhas naturais de Baía Formosa. Experiências autênticas entre o mar
+                    e a mata.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column contact">
+                <h4>Contato</h4>
+                <p><i class="fas fa-phone"></i> (84) 99999-9999</p>
+                <p><i class="fas fa-envelope"></i> contato@explorabaiaformosa.com.br</p>
             </div>
         </div>
 
-        <div class="footer-column contact">
-            <h4>Contato</h4>
-            <p><i class="fas fa-phone"></i> (84) 99999-9999</p>
-            <p><i class="fas fa-envelope"></i> contato@explorabaiaformosa.com.br</p>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Explora Baía Formosa. Todos os direitos reservados.</p>
+            </div>
         </div>
-    </div>
-
-    <div class="footer-bottom">
-        <div class="container">
-            <p>&copy; 2026 Explora Baía Formosa. Todos os direitos reservados.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>

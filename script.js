@@ -24,7 +24,7 @@ function toggleCart() {
 function removeItem(index) {
     cart.splice(index, 1);
     updateCartUI();
-    
+
     // Fecha se esvaziar
     if (cart.length === 0) {
         setTimeout(() => {
@@ -38,12 +38,12 @@ function updateCartUI() {
     const list = document.getElementById('cart-items');
     const totalSpan = document.getElementById('total-price');
     const countSpan = document.getElementById('cart-count');
-    
+
     if (!list || !totalSpan || !countSpan) return;
 
     list.innerHTML = '';
     let total = 0;
-    
+
     cart.forEach((item, index) => {
         total += item.price;
         list.innerHTML += `
@@ -57,23 +57,23 @@ function updateCartUI() {
                 </button>
             </li>`;
     });
-    
+
     totalSpan.innerText = total.toFixed(2);
     countSpan.innerText = cart.length;
 }
 
 // --- INICIALIZAÇÃO ---
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 1. Adicionar ao Roteiro
     document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', () => {
             const name = button.getAttribute('data-name');
             const price = parseFloat(button.getAttribute('data-price'));
-            
+
             cart.push({ name, price });
             updateCartUI();
-            
+
             const dropdown = document.getElementById('cart-dropdown');
             if (dropdown) dropdown.style.display = 'block';
         });
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.forEach(item => msg += `• ${item.name} (R$ ${item.price.toFixed(2)})%0A`);
             msg += `%0A💰 *TOTAL:* R$ ${total.toFixed(2)}`;
             msg += `%0A%0A_Gostaria de verificar disponibilidade para estes passeios._`;
-            
+
             window.open(`https://wa.me/5584999999999?text=${msg}`, '_blank');
         });
     }
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // 1. Nova localização
     const lat = -6.368306;
     const lng = -35.007528;
@@ -144,10 +144,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 4. Marcador
     const marker = L.marker([lat, lng]).addTo(map);
-    
+
     // 5. Popup
     marker.bindPopup("<b>Nossa Sede</b><br>Estamos esperando você!").openPopup();
-    
+
 });
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             let theme = root.getAttribute('data-theme');
-            
+
             if (theme === 'dark') {
                 root.setAttribute('data-theme', 'light');
                 localStorage.setItem('theme', 'light');
