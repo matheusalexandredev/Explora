@@ -352,12 +352,31 @@
             </div>
         </div>
 
-        <div class="footer-bottom">
+    <div class="footer-bottom">
             <div class="container">
+                
                 <p>&copy; 2026 Explora Baía Formosa. Todos os direitos reservados.</p>
+                <div class="footer-legal">
+                    <a href="javascript:void(0)" onclick="toggleTerms()">Termos de Uso</a>
+
+                </div>
             </div>
         </div>
     </footer>
+    <div id="terms-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modal-title">Título</h2>
+            <button class="close-modal" onclick="closeTerms()">&times;</button>
+        </div>
+        <div id="modal-text" class="modal-body">
+            </div>
+        <div class="modal-footer">
+            <button class="btn-checkout" style="padding: 10px 30px;" onclick="closeTerms()">Entendi</button>
+        </div>
+    </div>
+</div>
+
 </body>
 
 </html>

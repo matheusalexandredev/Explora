@@ -39,16 +39,15 @@ function updateCartUI() {
 
     if (!list || !totalSpan || !countSpan) return;
 
-    // Salva o carrinho no LocalStorage sempre que houver mudança
     localStorage.setItem('cart_explora', JSON.stringify(cart));
 
     list.innerHTML = '';
     let total = 0;
 
     if (cart.length === 0) {
-        emptyMsg.style.display = 'block';
+        if (emptyMsg) emptyMsg.style.display = 'block';
     } else {
-        emptyMsg.style.display = 'none';
+        if (emptyMsg) emptyMsg.style.display = 'none';
         cart.forEach((item, index) => {
             total += item.price;
             list.innerHTML += `
@@ -117,50 +116,70 @@ function enviarReserva() {
     const numeroWhats = "5584999999999"; 
     window.open(`https://wa.me/${numeroWhats}?text=${mensagem}`, '_blank');
 
-    // Limpa o carrinho após enviar a reserva
     cart = [];
     localStorage.removeItem('cart_explora');
     updateCartUI();
     toggleCart();
 }
 
+// --- LÓGICA DO MODAL DE TERMOS ---
+const textosLegais = {
+    termos: `
+        <h3>Uso do Site</h3>
+        <p>Ao navegar na Explora BF, você concorda com a coleta de dados básicos para sua reserva.</p>
+        <h3>Política de Cancelamento</h3>
+        <p>• <strong>Até 24h antes:</strong> Reembolso de 100% do sinal pago.<br>
+           • <strong>No dia:</strong> Não haverá devolução em caso de desistência.</p>
+        <h3>Responsabilidade</h3>
+        <p>Os passeios envolvem aventura. É obrigatório seguir as instruções do guia para sua segurança.</p>
+        <h3>Condições Climáticas</h3>
+        <p>Em caso de chuvas que comprometam a segurança, o passeio será reagendado ou o valor estornado.</p>
+    `
+};
+
+function toggleTerms() {
+    const modal = document.getElementById('terms-modal');
+    const title = document.getElementById('modal-title');
+    const content = document.getElementById('modal-text');
+
+    if (modal.style.display === "block") {
+        closeTerms();
+    } else {
+        title.innerText = "Termos de Uso";
+        content.innerHTML = textosLegais.termos;
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeTerms() {
+    const modal = document.getElementById('terms-modal');
+    if(modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+}
+
 // --- INICIALIZAÇÃO PRINCIPAL ---
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. CARREGAR DADOS DO LOCALSTORAGE
+    // 1. Carregar Carrinho
     const savedCart = localStorage.getItem('cart_explora');
     if (savedCart) {
         cart = JSON.parse(savedCart);
         updateCartUI();
     }
 
+    // 2. Persistência do Formulário
     const formFields = ['res-nome', 'res-tel', 'res-data', 'res-qtd', 'res-obs'];
     formFields.forEach(fieldId => {
         const savedValue = localStorage.getItem(fieldId);
         const element = document.getElementById(fieldId);
-        if (savedValue && element) {
-            element.value = savedValue;
-        }
-        // Salva conforme digita
+        if (savedValue && element) element.value = savedValue;
         if (element) {
             element.addEventListener('input', () => {
                 localStorage.setItem(fieldId, element.value);
             });
-        }
-    });
-
-    // 2. LÓGICA DO BOTÃO WHATSAPP AO FINAL DA PÁGINA
-    window.addEventListener('scroll', () => {
-        const whatsappBtn = document.querySelector('.whatsapp-float');
-        if (!whatsappBtn) return;
-        
-        const scrollPosition = window.innerHeight + window.scrollY;
-        const pageHeight = document.documentElement.scrollHeight;
-
-        if (scrollPosition >= pageHeight - 100) {
-            whatsappBtn.classList.add('show');
-        } else {
-            whatsappBtn.classList.remove('show');
         }
     });
 
@@ -169,14 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const name = button.getAttribute('data-name');
             const price = parseFloat(button.getAttribute('data-price'));
-
             cart.push({ name, price });
             updateCartUI();
             
-            // Feedback Visual no Botão
             const originalText = button.innerHTML;
             button.innerHTML = "✅ Adicionado";
-            button.classList.add('btn-success'); // Adicione esta classe no CSS se quiser
+            button.classList.add('btn-success');
             
             setTimeout(() => {
                 button.innerHTML = originalText;
@@ -185,36 +202,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Fechar Carrinho (Overlay)
-    const overlay = document.getElementById('cart-overlay');
-    if (overlay) overlay.addEventListener('click', toggleCart);
-
-    // 5. Filtros
+    // 4. Filtros
     const filterButtons = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.card');
-
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-
             const filterValue = button.getAttribute('data-filter');
             cards.forEach(card => {
-                if (filterValue === 'todos' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
+                card.style.display = (filterValue === 'todos' || card.getAttribute('data-category') === filterValue) ? 'block' : 'none';
             });
         });
     });
 
-    // 6. Tema (Dark/Light)
+    // 5. Tema (Dark/Light)
     const themeToggle = document.getElementById('theme-toggle');
     const root = document.documentElement;
     const savedTheme = localStorage.getItem('theme') || 'light';
     root.setAttribute('data-theme', savedTheme);
-
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             let theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -223,18 +229,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. FAQ Accordion
+    // 6. FAQ
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const item = question.parentElement;
-            document.querySelectorAll('.faq-item').forEach(other => {
-                if (other !== item) other.classList.remove('active');
-            });
             item.classList.toggle('active');
         });
     });
 
-    // 8. Mapa Leaflet
+    // 7. Mapa Leaflet
     const mapElement = document.getElementById('map-element');
     if (mapElement) {
         const lat = -6.368306;
@@ -244,3 +247,12 @@ document.addEventListener('DOMContentLoaded', () => {
         L.marker([lat, lng]).addTo(map).bindPopup("<b>Nossa Sede</b>").openPopup();
     }
 });
+
+// Listener Global para fechar modais ao clicar fora
+window.onclick = function(event) {
+    const termsModal = document.getElementById('terms-modal');
+    const cartOverlay = document.getElementById('cart-overlay');
+    
+    if (event.target == termsModal) closeTerms();
+    if (event.target == cartOverlay) toggleCart();
+};
