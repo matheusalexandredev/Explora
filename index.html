@@ -9,6 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <meta property="og:title" content="Passeios em Baía Formosa RN | Quadriciclo e Buggy">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.explorabaiaformosa.com.br/">
+    <meta property="og:title" content="Explora Baía Formosa | Passeios de Buggy e Aventura">
+    <meta property="og:description"
+        content="Reserve os melhores passeios em Baía Formosa. Buggy, Quadriciclo e Barco pelas paisagens mais incríveis do RN. Monte seu roteiro agora!">
+    <meta property="og:image" content="https://www.explorabaiaformosa.com.br/src/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="description"
+        content="Descubra os melhores passeios em Baía Formosa RN. Quadriciclo, buggy e Lagoa da Coca-Cola com reserva online rápida e segura.">
 </head>
 
 <body>
@@ -30,62 +42,69 @@
                         🛒 <span id="cart-count">0</span>
                     </button>
 
-<div id="cart-overlay" class="cart-overlay"></div>
+                    <div id="cart-overlay" class="cart-overlay"></div>
 
-<aside id="side-cart" class="side-cart">
-    <div class="cart-header">
-        <h2>Meu Roteiro</h2>
-        <button class="close-cart" onclick="toggleCart()">&times;</button>
-    </div>
+                    <aside id="side-cart" class="side-cart">
+                        <div class="cart-header">
+                            <h2>Meu Roteiro</h2>
+                            <button class="close-cart" onclick="toggleCart()">&times;</button>
+                        </div>
 
-    <div class="cart-body">
-        <ul id="cart-items"></ul>
-        
-        <div id="empty-cart-msg" style="display: none; text-align: center; margin: 20px 0; color: var(--text-soft);">
-            <p>Seu roteiro está vazio.</p>
-        </div>
+                        <div class="cart-body">
+                            <ul id="cart-items"></ul>
 
-        <div class="cart-form">
-            <h3>Dados da Reserva</h3>
-            
-            <div class="input-group">
-                <label>Seu Nome</label>
-                <input type="text" id="res-nome" placeholder="Ex: Maria Silva">
-            </div>
+                            <div id="empty-cart-msg"
+                                style="display: none; text-align: center; margin: 20px 0; color: var(--text-soft);">
+                                <p>Seu roteiro está vazio.</p>
+                            </div>
 
-            <div class="input-group">
-                <label>Telefone / WhatsApp</label>
-                <input type="tel" id="res-tel" placeholder="(84) 99999-9999">
-            </div>
+                            <div class="cart-form">
+                                <h3>Dados da Reserva</h3>
 
-            <div class="input-row">
-                <div class="input-group">
-                    <label>Data</label>
-                    <input type="date" id="res-data">
-                </div>
-                <div class="input-group">
-                    <label>Pessoas</label>
-                    <input type="number" id="res-qtd" min="1" value="1">
-                </div>
-            </div>
+                                <div class="input-group">
+                                    <label>Seu Nome</label>
+                                    <input type="text" id="res-nome" placeholder="Ex: Maria Silva">
+                                </div>
 
-            <div class="input-group">
-                <label>Observações</label>
-                <textarea id="res-obs" rows="3" placeholder="Alguma preferência ou dúvida?"></textarea>
-            </div>
-        </div>
-    </div>
+                                <div class="input-group">
+                                    <label>Telefone / WhatsApp</label>
+                                    <input type="tel" id="res-tel" placeholder="(84) 99999-9999">
+                                </div>
 
-    <div class="cart-footer">
-        <div class="total-container">
-            <span>Total estimado</span>
-            <span id="total-price">R$ 0,00</span>
-        </div>
-        <button id="checkout-whatsapp" class="btn-checkout" onclick="enviarReserva()">
-            Reservar agora via WhatsApp
-        </button>
-    </div>
-</aside>
+                                <div class="input-row">
+                                    <div class="input-group">
+                                        <label>Data</label>
+                                        <input type="date" id="res-data">
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Pessoas</label>
+                                        <input type="number" id="res-qtd" min="1" value="1">
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Observações</label>
+                                    <textarea id="res-obs" rows="3"
+                                        placeholder="Alguma preferência ou dúvida?"></textarea>
+                                </div>
+                            </div>
+                            <div class="cart-actions">
+                                <button onclick="clearCart()" class="btn-clear">
+                                    <i class="fas fa-trash-alt"></i> Limpar Roteiro
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cart-footer">
+                            <div class="total-container">
+                                <span>Total estimado</span>
+                                <span id="total-price">R$ 0,00</span>
+                            </div>
+                            <button id="checkout-whatsapp" class="btn-checkout" onclick="enviarReserva()">
+                                Reservar agora via WhatsApp
+                            </button>
+                        </div>
+                    </aside>
                 </li>
 
                 <li><a href="https://wa.me/5584999999999" class="btn-nav">Falar com Agente</a></li>
@@ -193,7 +212,7 @@
                         Roteiro</button>
                 </div>
             </div>
-            </div>
+        </div>
         </div>
     </section>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -237,41 +256,45 @@
         </div>
     </section>
 
-    <section class="section-faq container"> 
+    <section class="section-faq container">
         <h2 class="section-title">Dúvidas Frequentes</h2>
-    <div class="faq-container">
-        <div class="faq-item">
-            <button class="faq-question">
-                Como funciona a reserva dos passeios?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <p>É simples! Você adiciona os passeios desejados ao seu roteiro aqui no site e clica em "Reservar Agora". Você será direcionado ao nosso WhatsApp com a lista pronta para verificarmos a disponibilidade e finalizarmos o pagamento.</p>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    Como funciona a reserva dos passeios?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>É simples! Você adiciona os passeios desejados ao seu roteiro aqui no site e clica em "Reservar
+                        Agora". Você será direcionado ao nosso WhatsApp com a lista pronta para verificarmos a
+                        disponibilidade e finalizarmos o pagamento.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="faq-item">
-            <button class="faq-question">
-                Quais as formas de pagamento aceitas?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <p>Aceitamos Pix, transferências bancárias e cartões de crédito (com possibilidade de parcelamento). O pagamento é feito de forma segura durante o atendimento via WhatsApp.</p>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quais as formas de pagamento aceitas?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Aceitamos Pix, transferências bancárias e cartões de crédito (com possibilidade de parcelamento).
+                        O pagamento é feito de forma segura durante o atendimento via WhatsApp.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="faq-item">
-            <button class="faq-question">
-                O que devo levar para os passeios?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <p>Recomendamos protetor solar, chapéu ou boné, óculos de sol, roupas leves, trajes de banho e, claro, sua câmera ou celular para registrar as paisagens incríveis de Baia Formosa!</p>
+            <div class="faq-item">
+                <button class="faq-question">
+                    O que devo levar para os passeios?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Recomendamos protetor solar, chapéu ou boné, óculos de sol, roupas leves, trajes de banho e,
+                        claro, sua câmera ou celular para registrar as paisagens incríveis de Baia Formosa!</p>
+                </div>
             </div>
         </div>
-    </div>
     </section>
-    
+
     <section class="section-tour-map">
         <div class="map-wrapper">
             <div class="map-info-box">
@@ -301,7 +324,7 @@
         </div>
     </section>
 
-    
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <a href="https://wa.me/5584999999999" class="whatsapp-float" target="_blank">

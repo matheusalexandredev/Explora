@@ -1430,3 +1430,153 @@ footer {
     visibility: visible;
     transform: translateY(0);
 }
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.btn-clear {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.btn-clear:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* Esconder o botão se o carrinho estiver vazio */
+#empty-cart-msg[style*="block"] + .cart-actions {
+    display: none;
+}
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+.cart-bounce {
+    animation: bounce 0.4s ease;
+}
+/* --- Estilo do Botão Limpar Roteiro --- */
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.btn-clear {
+    background: none;
+    border: none;
+    color: #ff4d4d; /* Vermelho suave */
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.btn-clear:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* --- Feedback do Botão Adicionar ao Roteiro --- */
+/* Esta classe é adicionada via JS temporariamente */
+.add-to-cart.btn-success {
+    background-color: #25d366 !important; /* Verde WhatsApp */
+    border-color: #25d366 !important;
+    color: white !important;
+    transform: scale(0.95); /* Leve efeito de clique */
+}
+
+/* --- Ajuste no Input de Data (Dark Mode) --- */
+/* Garante que o ícone do calendário fique visível no tema escuro */
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* --- Estilo dos Itens no Carrinho (Reforço) --- */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+/* --- Novo Estilo do Botão Limpar Roteiro --- */
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border-color); /* Linha sutil para separar da lista */
+}
+
+.btn-clear {
+    background: transparent;
+    color: #ff4d4d;
+    border: 1.5px solid rgba(255, 77, 77, 0.3);
+    padding: 8px 16px;
+    border-radius: 50px; /* Segue o padrão dos seus botões principais */
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-clear i {
+    font-size: 0.9rem;
+}
+
+.btn-clear:hover {
+    background-color: #ff4d4d;
+    color: white;
+    border-color: #ff4d4d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 77, 77, 0.2);
+}
+
+.btn-clear:active {
+    transform: translateY(0);
+}
+
+/* Ajuste para o Dark Mode: Deixa a borda um pouco mais visível */
+[data-theme="dark"] .btn-clear {
+    border-color: rgba(255, 77, 77, 0.5);
+    background: rgba(255, 77, 77, 0.05);
+}
+
+[data-theme="dark"] .btn-clear:hover {
+    background-color: #ff4d4d;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+}
+.btn-clear {
+    width: 100%; /* Ocupa a largura toda do carrinho */
+    justify-content: center;
+    background: rgba(255, 77, 77, 0.05); /* Fundo bem clarinho */
+    border: 1px dashed rgba(255, 77, 77, 0.3);
+}

@@ -39,6 +39,9 @@ function updateCartUI() {
 
     if (!list || !totalSpan || !countSpan) return;
 
+    // Salva o carrinho no LocalStorage sempre que houver mudança
+    localStorage.setItem('cart_explora', JSON.stringify(cart));
+
     list.innerHTML = '';
     let total = 0;
 
@@ -66,6 +69,14 @@ function updateCartUI() {
 function removeItem(index) {
     cart.splice(index, 1);
     updateCartUI();
+}
+
+function clearCart() {
+    if (confirm("Tem certeza que deseja limpar todo o seu roteiro?")) {
+        cart = [];
+        localStorage.removeItem('cart_explora');
+        updateCartUI();
+    }
 }
 
 // --- RESERVA WHATSAPP ---
@@ -105,28 +116,55 @@ function enviarReserva() {
 
     const numeroWhats = "5584999999999"; 
     window.open(`https://wa.me/${numeroWhats}?text=${mensagem}`, '_blank');
+
+    // Limpa o carrinho após enviar a reserva
+    cart = [];
+    localStorage.removeItem('cart_explora');
+    updateCartUI();
+    toggleCart();
 }
 
 // --- INICIALIZAÇÃO PRINCIPAL ---
 document.addEventListener('DOMContentLoaded', () => {
-// --- LÓGICA DO BOTÃO WHATSAPP AO FINAL DA PÁGINA ---
-window.addEventListener('scroll', () => {
-    const whatsappBtn = document.querySelector('.whatsapp-float');
-    
-    // Calcula se o usuário chegou ao fim da página
-    // window.innerHeight + window.scrollY dá a posição atual da tela
-    // document.documentElement.scrollHeight dá o tamanho total da página
-    // Usamos -50 para dar uma pequena margem antes do fim absoluto
-    const scrollPosition = window.innerHeight + window.scrollY;
-    const pageHeight = document.documentElement.scrollHeight;
 
-    if (scrollPosition >= pageHeight - 50) {
-        whatsappBtn.classList.add('show');
-    } else {
-        whatsappBtn.classList.remove('show');
+    // 1. CARREGAR DADOS DO LOCALSTORAGE
+    const savedCart = localStorage.getItem('cart_explora');
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCartUI();
     }
-});
-    // 1. Botões Adicionar ao Roteiro
+
+    const formFields = ['res-nome', 'res-tel', 'res-data', 'res-qtd', 'res-obs'];
+    formFields.forEach(fieldId => {
+        const savedValue = localStorage.getItem(fieldId);
+        const element = document.getElementById(fieldId);
+        if (savedValue && element) {
+            element.value = savedValue;
+        }
+        // Salva conforme digita
+        if (element) {
+            element.addEventListener('input', () => {
+                localStorage.setItem(fieldId, element.value);
+            });
+        }
+    });
+
+    // 2. LÓGICA DO BOTÃO WHATSAPP AO FINAL DA PÁGINA
+    window.addEventListener('scroll', () => {
+        const whatsappBtn = document.querySelector('.whatsapp-float');
+        if (!whatsappBtn) return;
+        
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const pageHeight = document.documentElement.scrollHeight;
+
+        if (scrollPosition >= pageHeight - 100) {
+            whatsappBtn.classList.add('show');
+        } else {
+            whatsappBtn.classList.remove('show');
+        }
+    });
+
+    // 3. Botões Adicionar ao Roteiro
     document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', () => {
             const name = button.getAttribute('data-name');
@@ -135,18 +173,23 @@ window.addEventListener('scroll', () => {
             cart.push({ name, price });
             updateCartUI();
             
-            // REMOVIDO: toggleCart(); <- Esta linha fazia o carrinho abrir sozinho
+            // Feedback Visual no Botão
+            const originalText = button.innerHTML;
+            button.innerHTML = "✅ Adicionado";
+            button.classList.add('btn-success'); // Adicione esta classe no CSS se quiser
             
-            // DICA: Você pode adicionar um feedback visual sutil aqui 
-            // como mudar o texto do botão para "Adicionado!" por 1 segundo.
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('btn-success');
+            }, 1000);
         });
     });
 
-    // 2. Fechar Carrinho (Overlay)
+    // 4. Fechar Carrinho (Overlay)
     const overlay = document.getElementById('cart-overlay');
     if (overlay) overlay.addEventListener('click', toggleCart);
 
-    // 3. Filtros
+    // 5. Filtros
     const filterButtons = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.card');
 
@@ -166,7 +209,7 @@ window.addEventListener('scroll', () => {
         });
     });
 
-    // 4. Tema (Dark/Light)
+    // 6. Tema (Dark/Light)
     const themeToggle = document.getElementById('theme-toggle');
     const root = document.documentElement;
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -180,7 +223,7 @@ window.addEventListener('scroll', () => {
         });
     }
 
-    // 5. FAQ Accordion
+    // 7. FAQ Accordion
     document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
             const item = question.parentElement;
@@ -191,7 +234,7 @@ window.addEventListener('scroll', () => {
         });
     });
 
-    // 6. Mapa Leaflet
+    // 8. Mapa Leaflet
     const mapElement = document.getElementById('map-element');
     if (mapElement) {
         const lat = -6.368306;
