@@ -1201,3 +1201,232 @@ footer {
     justify-content: center;
   }
 }
+
+/* --- Seção FAQ --- */
+.section-faq {
+    padding: 80px 0;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--bg-card);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-icon {
+    color: var(--primary-orange);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    background: var(--bg-body);
+}
+
+.faq-answer p {
+    padding: 0 20px 20px;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+/* Estado Ativo (Aberto) */
+.faq-item.active {
+    border-color: var(--primary-orange);
+    box-shadow: var(--shadow-card);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Transforma o + em um x */
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Ajuste conforme o tamanho do texto */
+    padding-top: 10px;
+}
+/* Overlay (Fundo escurecido) */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1999;
+    display: none; /* Escondido por padrão */
+    transition: var(--transition);
+}
+
+/* Carrinho Lateral */
+.side-cart {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Começa fora da tela */
+    width: 400px;
+    height: 100vh;
+    background: var(--bg-card);
+    z-index: 2000;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 1px solid var(--border-color);
+}
+
+/* Quando o carrinho estiver ativo */
+.side-cart.active {
+    right: 0;
+}
+
+.cart-header {
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.close-cart {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.cart-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* Estilo do Botão de Checkout (UI da imagem anterior) */
+.btn-checkout {
+    width: 100%;
+    background: var(--primary-orange);
+    color: white;
+    padding: 18px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-btn);
+    transition: var(--transition);
+}
+
+.cart-note {
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .side-cart { width: 100%; }
+}
+.cart-form {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.cart-form h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-soft);
+}
+
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-body);
+    color: var(--text-main);
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-orange);
+}
+
+/* Coloca Data e Quantidade lado a lado */
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+/* Modifique ou adicione estas regras ao seu CSS */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25d366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+    transition: all 0.4s ease; /* Transição suave */
+    
+    /* Estado inicial: Escondido e deslocado para baixo */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100px); 
+}
+
+/* Classe que será adicionada via JavaScript */
+.whatsapp-float.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}

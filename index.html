@@ -30,15 +30,62 @@
                         🛒 <span id="cart-count">0</span>
                     </button>
 
-                    <div id="cart-dropdown" class="cart-dropdown">
-                        <h3>Seu Roteiro</h3>
-                        <ul id="cart-items"></ul>
+<div id="cart-overlay" class="cart-overlay"></div>
 
-                        <div class="cart-footer">
-                            <div class="cart-total">Total: R$ <span id="total-price">0.00</span></div>
-                            <button id="checkout-whatsapp" class="btn-primary">Reservar agora</button>
-                        </div>
-                    </div>
+<aside id="side-cart" class="side-cart">
+    <div class="cart-header">
+        <h2>Meu Roteiro</h2>
+        <button class="close-cart" onclick="toggleCart()">&times;</button>
+    </div>
+
+    <div class="cart-body">
+        <ul id="cart-items"></ul>
+        
+        <div id="empty-cart-msg" style="display: none; text-align: center; margin: 20px 0; color: var(--text-soft);">
+            <p>Seu roteiro está vazio.</p>
+        </div>
+
+        <div class="cart-form">
+            <h3>Dados da Reserva</h3>
+            
+            <div class="input-group">
+                <label>Seu Nome</label>
+                <input type="text" id="res-nome" placeholder="Ex: Maria Silva">
+            </div>
+
+            <div class="input-group">
+                <label>Telefone / WhatsApp</label>
+                <input type="tel" id="res-tel" placeholder="(84) 99999-9999">
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label>Data</label>
+                    <input type="date" id="res-data">
+                </div>
+                <div class="input-group">
+                    <label>Pessoas</label>
+                    <input type="number" id="res-qtd" min="1" value="1">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Observações</label>
+                <textarea id="res-obs" rows="3" placeholder="Alguma preferência ou dúvida?"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-footer">
+        <div class="total-container">
+            <span>Total estimado</span>
+            <span id="total-price">R$ 0,00</span>
+        </div>
+        <button id="checkout-whatsapp" class="btn-checkout" onclick="enviarReserva()">
+            Reservar agora via WhatsApp
+        </button>
+    </div>
+</aside>
                 </li>
 
                 <li><a href="https://wa.me/5584999999999" class="btn-nav">Falar com Agente</a></li>
@@ -146,6 +193,8 @@
                         Roteiro</button>
                 </div>
             </div>
+            </div>
+        </div>
     </section>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <section class="section-about">
@@ -187,6 +236,42 @@
             </div>
         </div>
     </section>
+
+    <section class="section-faq container"> 
+        <h2 class="section-title">Dúvidas Frequentes</h2>
+    <div class="faq-container">
+        <div class="faq-item">
+            <button class="faq-question">
+                Como funciona a reserva dos passeios?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>É simples! Você adiciona os passeios desejados ao seu roteiro aqui no site e clica em "Reservar Agora". Você será direcionado ao nosso WhatsApp com a lista pronta para verificarmos a disponibilidade e finalizarmos o pagamento.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Quais as formas de pagamento aceitas?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Aceitamos Pix, transferências bancárias e cartões de crédito (com possibilidade de parcelamento). O pagamento é feito de forma segura durante o atendimento via WhatsApp.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                O que devo levar para os passeios?
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Recomendamos protetor solar, chapéu ou boné, óculos de sol, roupas leves, trajes de banho e, claro, sua câmera ou celular para registrar as paisagens incríveis de Baia Formosa!</p>
+            </div>
+        </div>
+    </div>
+    </section>
+    
     <section class="section-tour-map">
         <div class="map-wrapper">
             <div class="map-info-box">
@@ -216,6 +301,7 @@
         </div>
     </section>
 
+    
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <a href="https://wa.me/5584999999999" class="whatsapp-float" target="_blank">
