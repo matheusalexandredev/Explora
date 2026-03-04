@@ -17,11 +17,11 @@ function moveSlide(direction, id) {
 function toggleCart() {
     const sideCart = document.getElementById('side-cart');
     const overlay = document.getElementById('cart-overlay');
-    
+
     if (!sideCart || !overlay) return;
 
     sideCart.classList.toggle('active');
-    
+
     if (sideCart.classList.contains('active')) {
         overlay.style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -97,25 +97,30 @@ function enviarReserva() {
         return;
     }
 
+    // Monta a lista de itens
     let itensTexto = "";
     cart.forEach(item => {
         itensTexto += `- ${item.name} (R$ ${item.price.toFixed(2)})\n`;
     });
 
+    // AJUSTE: Só cria a linha de OBS se houver texto
+    const obsTexto = obs.trim() !== "" ? `\n📝 *OBS:* ${obs}` : "";
+
     const mensagem = encodeURIComponent(
         `*NOVA RESERVA - EXPLORA BF*\n\n` +
-        `👤 *Nome:* ${nome}\n` +
-        `📞 *WhatsApp:* ${tel}\n` +
-        `📅 *Data:* ${data}\n` +
-        `👥 *Pessoas:* ${qtd}\n\n` +
-        `🗺️ *ROTEIRO SELECIONADO:*\n${itensTexto}\n` +
-        `💰 *TOTAL ESTIMADO:* ${total}\n\n` +
-        `📝 *OBS:* ${obs}`
+        ` *Nome:* ${nome}\n` +
+        ` *WhatsApp:* ${tel}\n` +
+        ` *Data:* ${data}\n` +
+        ` *Pessoas:* ${qtd}\n\n` +
+        ` *ROTEIRO SELECIONADO:*\n${itensTexto}\n` +
+        ` *TOTAL ESTIMADO:* ${total}\n` +
+        obsTexto
     );
 
-    const numeroWhats = "5584999999999"; 
+    const numeroWhats = "5584991951206";
     window.open(`https://wa.me/${numeroWhats}?text=${mensagem}`, '_blank');
 
+    // Limpa após envio
     cart = [];
     localStorage.removeItem('cart_explora');
     updateCartUI();
@@ -142,11 +147,13 @@ function toggleTerms() {
     const title = document.getElementById('modal-title');
     const content = document.getElementById('modal-text');
 
+    if (!modal) return;
+
     if (modal.style.display === "block") {
         closeTerms();
     } else {
-        title.innerText = "Termos de Uso";
-        content.innerHTML = textosLegais.termos;
+        if (title) title.innerText = "Termos de Uso";
+        if (content) content.innerHTML = textosLegais.termos;
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
     }
@@ -154,7 +161,7 @@ function toggleTerms() {
 
 function closeTerms() {
     const modal = document.getElementById('terms-modal');
-    if(modal) {
+    if (modal) {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
     }
@@ -190,11 +197,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const price = parseFloat(button.getAttribute('data-price'));
             cart.push({ name, price });
             updateCartUI();
-            
+
             const originalText = button.innerHTML;
             button.innerHTML = "✅ Adicionado";
             button.classList.add('btn-success');
-            
+
             setTimeout(() => {
                 button.innerHTML = originalText;
                 button.classList.remove('btn-success');
@@ -249,10 +256,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Listener Global para fechar modais ao clicar fora
-window.onclick = function(event) {
+window.onclick = function (event) {
     const termsModal = document.getElementById('terms-modal');
     const cartOverlay = document.getElementById('cart-overlay');
-    
+
     if (event.target == termsModal) closeTerms();
     if (event.target == cartOverlay) toggleCart();
 };
