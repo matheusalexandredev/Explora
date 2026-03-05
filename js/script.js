@@ -1,6 +1,9 @@
 // --- ESTADO GLOBAL ---
 let cart = [];
 
+const empresa = "Explora BF";
+const whatsappEmpresa = "558486766578";
+
 // --- LÓGICA DO CARROSSEL ---
 function moveSlide(direction, id) {
     const carousel = document.getElementById(id);
@@ -107,14 +110,14 @@ function enviarReserva() {
     const obsTexto = obs.trim() !== "" ? `\n📝 *OBS:* ${obs}` : "";
 
     const mensagem = encodeURIComponent(
-        `*NOVA RESERVA - EXPLORA BF*\n\n` +
-        ` *Nome:* ${nome}\n` +
-        ` *WhatsApp:* ${tel}\n` +
-        ` *Data:* ${data}\n` +
-        ` *Pessoas:* ${qtd}\n\n` +
-        ` *ROTEIRO SELECIONADO:*\n${itensTexto}\n` +
-        ` *TOTAL ESTIMADO:* ${total}\n` +
-        obsTexto
+        `🌴 *NOVA RESERVA - EXPLORA BF* 🌴\n\n` +
+        `👤 *Nome:* ${nome}\n` +
+        `📱 *WhatsApp:* ${tel}\n` +
+        `📅 *Data:* ${data}\n` +
+        `👥 *Pessoas:* ${qtd}\n\n` +
+        `📍 *ROTEIRO SELECIONADO:*\n${itensTexto}\n` +
+        `💰 *TOTAL ESTIMADO:* ${total}\n\n` +
+        `${obsTexto}`
     );
 
     const numeroWhats = "5584991951206";
