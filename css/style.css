@@ -1036,6 +1036,13 @@ nav {
   margin-top: auto;
 }
 
+.stars {
+  color: var(--primary-orange);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
 [data-theme="dark"] .testimonial-card {
   background-color: var(--bg-card);
 }
