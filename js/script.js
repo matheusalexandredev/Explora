@@ -107,10 +107,10 @@ function enviarReserva() {
     });
 
     // AJUSTE: Só cria a linha de OBS se houver texto
-    const obsTexto = obs.trim() !== "" ? `\n📝 *OBS:* ${obs}` : "";
+    const obsTexto = obs.trim() !== "" ? `\n*OBS:* ${obs}` : "";
 
     const mensagem = encodeURIComponent(
-        ` *NOVA RESERVA - EXPLORA BF* 🌴\n\n` +
+        ` *NOVA RESERVA - EXPLORA BF* \n\n` +
         ` *Nome:* ${nome}\n` +
         ` *WhatsApp:* ${tel}\n` +
         ` *Data:* ${data}\n` +
