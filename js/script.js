@@ -110,25 +110,14 @@ function enviarReserva() {
     const obsTexto = obs.trim() !== "" ? `\n📝 *OBS:* ${obs}` : "";
 
     const mensagem = encodeURIComponent(
-<<<<<<< HEAD
-        `🌴 *NOVA RESERVA - EXPLORA BF* 🌴\n\n` +
-        `👤 *Nome:* ${nome}\n` +
-        `📱 *WhatsApp:* ${tel}\n` +
-        `📅 *Data:* ${data}\n` +
-        `👥 *Pessoas:* ${qtd}\n\n` +
-        `📍 *ROTEIRO SELECIONADO:*\n${itensTexto}\n` +
-        `💰 *TOTAL ESTIMADO:* ${total}\n\n` +
-        `${obsTexto}`
-=======
-        `*NOVA RESERVA - EXPLORA BF*\n\n` +
+        ` *NOVA RESERVA - EXPLORA BF* 🌴\n\n` +
         ` *Nome:* ${nome}\n` +
         ` *WhatsApp:* ${tel}\n` +
         ` *Data:* ${data}\n` +
         ` *Pessoas:* ${qtd}\n\n` +
-        ` *ROTEIRO SELECIONADO:*\n${itensTexto}` +
-        obsTexto +
-        `\n *TOTAL ESTIMADO:* ${total}\n`
->>>>>>> 88ca6a3650370046e55016de45fc6ba2b75bc992
+        ` *ROTEIRO SELECIONADO:*\n${itensTexto}\n` +
+        ` *TOTAL ESTIMADO:* ${total}\n\n` +
+        `${obsTexto}`
     );
 
     const numeroWhats = "5584991951206";
