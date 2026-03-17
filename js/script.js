@@ -38,13 +38,15 @@ function updateCartUI() {
                 <li class="cart-item">
                     <div class="cart-item-info">
                         <strong>${item.name}</strong>
-                        <span>R$ ${item.price.toFixed(2)}</span>
+                        <span>R$ ${item.price.toFixed(2)} / pessoa</span>
                     </div>
                     <button class="remove-item" onclick="removeItem(${index})">&times;</button>
                 </li>`;
         });
     }
-    totalSpan.innerText = `R$ ${total.toFixed(2)}`;
+    const qtdEl = document.getElementById('res-qtd');
+    const qtdNum = parseInt(qtdEl ? qtdEl.value : 1) || 1;
+    totalSpan.innerText = `R$ ${(total * qtdNum).toFixed(2)}`;
     countSpan.innerText = cart.length;
 }
 
@@ -67,16 +69,25 @@ function enviarReserva() {
     const data = document.getElementById('res-data').value;
     const qtd = document.getElementById('res-qtd').value;
     const obs = document.getElementById('res-obs').value;
-    const total = document.getElementById('total-price').innerText;
     if (!nome || !data) { alert("Por favor, preencha seu nome e a data pretendida."); return; }
     if (cart.length === 0) { alert("Seu roteiro está vazio!"); return; }
+
+    const qtdNum = parseInt(qtd) || 1;
     let itensTexto = "";
-    cart.forEach(item => { itensTexto += `- ${item.name} (R$ ${item.price.toFixed(2)})\n`; });
+    let totalCalculado = 0;
+
+    cart.forEach(item => {
+        const subtotal = item.price * qtdNum;
+        totalCalculado += subtotal;
+        itensTexto += `- ${item.name}: R$ ${item.price.toFixed(2)} x ${qtdNum} pessoa(s) = R$ ${subtotal.toFixed(2)}\n`;
+    });
+
+    const totalFinal = `R$ ${totalCalculado.toFixed(2)}`;
     const obsTexto = obs.trim() !== "" ? `\n*OBS:* ${obs}` : "";
     const mensagem = encodeURIComponent(
         `*NOVA RESERVA - EXPLORA BF*\n\n` +
-        `*Nome:* ${nome}\n*WhatsApp:* ${tel}\n*Data:* ${data}\n*Pessoas:* ${qtd}\n\n` +
-        `*ROTEIRO SELECIONADO:*\n${itensTexto}\n*TOTAL ESTIMADO:* ${total}${obsTexto}`
+        `*Nome:* ${nome}\n*WhatsApp:* ${tel}\n*Data:* ${data}\n*Pessoas:* ${qtdNum}\n\n` +
+        `*ROTEIRO SELECIONADO:*\n${itensTexto}\n*TOTAL ESTIMADO:* ${totalFinal}${obsTexto}`
     );
     window.open(`https://wa.me/5584991951206?text=${mensagem}`, '_blank');
     cart = [];
@@ -125,6 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (saved && el) el.value = saved;
         if (el) el.addEventListener('input', () => localStorage.setItem(id, el.value));
     });
+
+    // Atualiza total ao mudar número de pessoas
+    const qtdInput = document.getElementById('res-qtd');
+    if (qtdInput) qtdInput.addEventListener('input', updateCartUI);
 
     document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', () => {

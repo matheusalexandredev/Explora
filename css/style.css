@@ -23,6 +23,7 @@
   --radius-card: 18px;
   --radius-btn: 12px;
 }
+.theme-switch { list-style: none; display: flex; align-items: center; }
 [data-theme="dark"] {
   --bg-color: #0d0d0d;
   --bg-body: #0d0d0d;
